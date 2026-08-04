@@ -4,23 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="社内向けAI活用ガイド。どの業務が自動化・改善でき、どのツールが最適かを業務別にまとめています。">
-<meta property="og:title" content="AI活用ガイド ― どの業務に、どのツールを">
-<meta property="og:description" content="業務別に、自動化の度合いと最適なツールがわかる社内ガイド。">
+<meta name="description" content="業務ごとに、どこまでAIに任せられるかと、どのツールが適するかをまとめた社内向け資料。">
+<meta property="og:title" content="業務別 AI活用ガイド">
+<meta property="og:description" content="業務ごとに、自動化の度合いと適したツールがわかる社内資料。">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#129504;</text></svg>">
-<title>AI活用ガイド ― どの業務に、どのツールを</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#128216;</text></svg>">
+<title>業務別 AI活用ガイド</title>
 <style>
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --paper: #faf9f7;
-  --ink: #1c1a17;
-  --muted: #6b665e;
-  --line: #e5e1da;
-  --accent: #b8562f;
-  --accent-soft: #fdf3ee;
-  --chip: #f2efe9;
+  --bg: #ffffff; --paper: #faf9f7; --ink: #1c1a17; --muted: #6b665e;
+  --line: #e5e1da; --accent: #b8562f; --accent-soft: #fdf3ee; --chip: #f2efe9;
 }
 * { box-sizing: border-box; }
 body {
@@ -30,14 +24,10 @@ body {
 }
 .wrap { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
 
-header.hero { border-bottom: 2px solid var(--ink); padding-bottom: 22px; margin-bottom: 24px; }
-header.hero h1 { font-size: 26px; line-height: 1.4; margin: 0 0 14px; letter-spacing: -0.01em; }
-.goals { background: var(--accent-soft); border-radius: 9px; padding: 16px 22px; margin: 0 0 14px; }
-.goals p { margin: 0 0 8px; font-size: 13px; color: var(--accent); font-weight: 700; letter-spacing: 0.04em; }
-.goals ol { margin: 0; padding-left: 20px; }
-.goals li { font-size: 14.5px; margin-bottom: 3px; }
-.goals li:last-child { margin-bottom: 0; }
-.meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+header.hero { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 22px; }
+header.hero h1 { font-size: 26px; line-height: 1.4; margin: 0 0 10px; letter-spacing: -0.01em; }
+header.hero p { margin: 0; font-size: 14.5px; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .meta span { background: var(--chip); border-radius: 4px; padding: 3px 9px; font-size: 11.5px; color: var(--muted); }
 
 .controls { position: sticky; top: 0; background: var(--bg); padding: 14px 0 12px; z-index: 20; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
@@ -51,21 +41,22 @@ header.hero h1 { font-size: 26px; line-height: 1.4; margin: 0 0 14px; letter-spa
 
 .part { margin-bottom: 44px; }
 .part > h2 { font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin: 0 0 4px; font-weight: 700; }
-.part > .part-sub { font-size: 21px; margin: 0 0 8px; font-weight: 700; letter-spacing: -0.01em; }
-.part > .lead { font-size: 14.5px; color: var(--muted); margin: 0 0 20px; }
+.part > .part-sub { font-size: 21px; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.01em; }
 
 .term { border-left: 3px solid var(--line); padding: 2px 0 2px 18px; margin-bottom: 26px; }
 .term:hover { border-left-color: var(--accent); }
 .term h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; letter-spacing: -0.005em; }
 .term h3 .en { color: var(--muted); font-size: 12.5px; font-weight: 400; margin-left: 7px; }
 .term p { margin: 0; font-size: 14.5px; }
-.term p + p { margin-top: 8px; }
+.term p + p { margin-top: 10px; }
 .term ul, .term ol { margin: 8px 0 0; padding-left: 20px; }
 .term li { font-size: 14.5px; margin-bottom: 4px; }
-strong { background: linear-gradient(transparent 62%, #f7dfd2 62%); font-weight: 700; }
+.term dl { margin: 6px 0 0; }
+.term dt { font-weight: 700; font-size: 15px; margin-top: 14px; }
+.term dl dt:first-of-type { margin-top: 4px; }
+.term dd { margin: 2px 0 0; font-size: 14.5px; }
 
 .tlabel { font-size: 12.5px !important; color: var(--muted); font-weight: 600; margin: 18px 0 2px !important; letter-spacing: 0.04em; }
-code { background: var(--chip); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
 table { width: 100%; border-collapse: collapse; margin: 8px 0 0; font-size: 13.5px; }
 th, td { text-align: left; padding: 9px 11px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { background: var(--paper); font-size: 12px; color: var(--muted); font-weight: 600; }
@@ -83,12 +74,9 @@ th { background: var(--paper); font-size: 12px; color: var(--muted); font-weight
 .lv-no    { background: #f6e7e7; color: #8f3230; }
 .term h3 .b { margin-left: 8px; }
 
-.callout { background: var(--accent-soft); border-radius: 9px; padding: 18px 22px; margin-top: 14px; }
-.callout p { margin: 0; font-size: 14.5px; }
-.warn { background: #fdf4f3; border-left: 3px solid #c96a5e; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
-.warn p { margin: 0; font-size: 14.5px; }
-
-.legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 4px 0 22px; padding: 14px 18px; background: var(--paper); border-radius: 8px; }
+.note { background: var(--paper); border-radius: 8px; padding: 14px 18px; margin-top: 14px; }
+.note p { margin: 0; font-size: 14.5px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 22px; padding: 14px 18px; background: var(--paper); border-radius: 8px; }
 .legend div { font-size: 13px; color: var(--muted); }
 
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
@@ -107,29 +95,23 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 <div class="wrap">
 
 <header class="hero">
-  <h1>AI活用ガイド<br>― どの業務に、どのツールを</h1>
-  <div class="goals">
-    <p>この資料のゴール</p>
-    <ol>
-      <li>自分の業務のうち、<b>AIで自動化・改善できる部分</b>がわかること</li>
-      <li>その業務に<b>どのツールが最適か</b>を、自分で選べるようになること</li>
-    </ol>
-  </div>
+  <h1>業務別 AI活用ガイド</h1>
+  <p>社内でAIツールを使うための実務資料です。業務ごとに、どこまで任せられるか（自動化の度合い）と、どのツールが適するかをまとめています。</p>
   <div class="meta">
     <span>Claude</span><span>Claude Code</span><span>Cowork</span><span>Claude Design</span><span>ChatGPT</span><span>Codex</span><span>Gemini</span><span>Gemini Notebook</span><span>2026年8月版</span>
   </div>
 </header>
 
 <div class="controls">
-  <input id="q" type="search" placeholder="業務やツール名で検索（例：議事録、定期レポート、画像、Cowork）" autocomplete="off">
+  <input id="q" type="search" placeholder="業務名・ツール名・用語で検索（例：議事録、定期レポート、Nano Banana、トークン）" autocomplete="off">
   <div class="tabs">
     <button class="tab on" data-f="all">すべて</button>
-    <button class="tab" data-f="p1">5つの型</button>
+    <button class="tab" data-f="p1">5分類</button>
     <button class="tab" data-f="p2">業務カタログ</button>
-    <button class="tab" data-f="p3">自動化の進め方</button>
+    <button class="tab" data-f="p3">導入の進め方</button>
     <button class="tab" data-f="p4">ツール別</button>
-    <button class="tab" data-f="p5">用語と考え方</button>
-    <button class="tab" data-f="p6">ルール</button>
+    <button class="tab" data-f="p5">用語集</button>
+    <button class="tab" data-f="p6">運用ルール</button>
   </div>
   <div class="count" id="count"></div>
 </div>
@@ -139,217 +121,225 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 <!-- 第1部 -->
 <section class="part" data-part="p1">
   <h2>第 1 部</h2>
-  <div class="part-sub">ツールの5つの型</div>
-  <p class="lead">違いは「賢さ」ではありません。中身のAIはほぼ同じです。</p>
+  <div class="part-sub">ツールの5分類</div>
 
-  <div class="term"><h3>型の一覧</h3>
-  <p>見るべきは<strong>成果物がどこに残るか</strong>と<strong>どこまで自分で走るか</strong>。ここさえ押さえれば選べます。</p>
+  <div class="term"><h3>分類の一覧</h3>
+  <p>分類の基準は2つ。<strong>成果物がどこに残るか</strong>と、<strong>どこまで自走するか</strong>です。中身のAIはどれもほぼ同じもので、性能差より設計思想の差のほうが実務では効きます。</p>
   <table>
-    <tr><th>型</th><th>代表</th><th>成果物の置き場所</th><th>動き方</th></tr>
-    <tr><td><b class="b typ-chat">チャット型</b></td><td>Claude / ChatGPT / Gemini</td><td>会話の中</td><td>聞いたら答える一往復</td></tr>
+    <tr><th>分類</th><th>代表</th><th>成果物の置き場所</th><th>動き方</th></tr>
+    <tr><td><b class="b typ-chat">チャット型</b></td><td>Claude / ChatGPT / Gemini</td><td>会話の中</td><td>一往復で答える</td></tr>
     <tr><td><b class="b typ-work">作業代行型</b></td><td>Cowork</td><td>PCのフォルダ</td><td>複数手順を自走。定期実行も可</td></tr>
     <tr><td><b class="b typ-dev">開発型</b></td><td>Claude Code / Codex</td><td>コードとして手元に残る</td><td>同上＋履歴管理・動作確認</td></tr>
     <tr><td><b class="b typ-dsn">デザイン型</b></td><td>Claude Design</td><td>書き出し先（Canva等）</td><td>指示からビジュアルを生成</td></tr>
     <tr><td><b class="b typ-doc">資料限定型</b></td><td>Gemini Notebook</td><td>ノートブックの中</td><td>渡した資料だけを根拠に答える</td></tr>
   </table></div>
 
-  <div class="term"><h3>選ぶときの3つの質問</h3>
+  <div class="term"><h3>選択の判断軸</h3>
   <ol>
-    <li><b>成果物は何か？</b> 答えだけ → チャット型／ファイル → 作業代行型・開発型／画像 → デザイン型</li>
-    <li><b>手順は毎回同じか？</b> 同じ → 開発型（スクリプトとして残る）／毎回違う → 作業代行型</li>
-    <li><b>根拠を追う必要があるか？</b> ある → 資料限定型</li>
+    <li><b>成果物は何か</b> — 答えだけ→チャット型／ファイル→作業代行型・開発型／画像→デザイン型</li>
+    <li><b>手順は毎回同じか</b> — 同じ→開発型（スクリプトとして残る）／毎回違う→作業代行型</li>
+    <li><b>根拠を追う必要があるか</b> — ある→資料限定型</li>
   </ol></div>
 
-  <div class="term"><h3>よくある誤解</h3>
-  <p><strong>「開発型＝エンジニア専用」ではありません。</strong>毎月同じ集計、決まった形式での取り込みなど、手順が固定していて再現性が要る作業は、非エンジニアでも開発型が最適です。スクリプトとして残るので他の人にも渡せます。判断軸は職種ではなく<strong>手順が固定かどうか</strong>。</p>
-  <p><strong>Claude Codeもチャット形式です。</strong>「このバグを直して」と日本語で頼めます。ターミナル（黒い画面）が原点ですが、デスクトップアプリ・Web・VS Code拡張でも同じことができます。</p></div>
+  <div class="term"><h3>誤解されやすい点</h3>
+  <p><strong>開発型はエンジニア専用ではありません。</strong>毎月同じ集計、決まった形式での取り込みなど、手順が固定していて再現性が要る作業は、非エンジニアでも開発型が適します。スクリプトとして残るため、他の人にも渡せます。判断軸は職種ではなく手順の固定度です。</p>
+  <p><strong>Claude Code もチャット形式です。</strong>「このバグを直して」と日本語で頼めます。ターミナルが原点ですが、デスクトップアプリ・Web・VS Code拡張でも同じことができます。</p></div>
 </section>
 
 <!-- 第2部 -->
 <section class="part" data-part="p2">
   <h2>第 2 部</h2>
   <div class="part-sub">業務別カタログ</div>
-  <p class="lead">自分の業務を探してください。ここがこの資料の本体です。</p>
 
   <div class="legend">
-    <div><b class="b lv-auto">全自動</b> 人は結果を見るだけ。定期実行に載せられる</div>
+    <div><b class="b lv-auto">全自動</b> 人は結果を確認するだけ。定期実行に載せられる</div>
     <div><b class="b lv-half">半自動</b> AIが作り、人が確認・修正して確定する</div>
-    <div><b class="b lv-help">支援</b> 人が主役。自動化しないほうがいい</div>
+    <div><b class="b lv-help">支援</b> 人が主体。AIは検討相手</div>
   </div>
 
   <div class="term"><h3>A. 書く・まとめる</h3>
   <table>
-    <tr><th>業務</th><th>度合い</th><th>最適ツール</th><th>補足</th></tr>
-    <tr><td>メール・チャットの下書き</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>送信ボタンは必ず人が押す</td></tr>
-    <tr><td>議事録の作成（文字起こしから）</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>形式を固定するならCoworkに型を覚えさせる</td></tr>
+    <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
+    <tr><td>メール・チャットの下書き</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>送信は人が判断する</td></tr>
+    <tr><td>議事録の作成（文字起こしから）</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>形式が決まっているならCoworkに型を登録する</td></tr>
     <tr><td>長文資料の要約</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>数字と固有名詞は要確認</td></tr>
-    <tr><td>報告書・提案書の作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Word / PowerPointで欲しいならCowork</td></tr>
-    <tr><td>翻訳・誤字チェック</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォートは「低」で十分</td></tr>
+    <tr><td>報告書・提案書の作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Word / PowerPointで出す場合</td></tr>
+    <tr><td>翻訳・誤字チェック</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォートは「低」で足りる</td></tr>
     <tr><td>定型フォーマットへの変換</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>毎回同じ形なら開発型でも可</td></tr>
   </table></div>
 
   <div class="term"><h3>B. 調べる・確認する</h3>
   <table>
-    <tr><th>業務</th><th>度合い</th><th>最適ツール</th><th>補足</th></tr>
-    <tr><td>社内規程・マニュアルの検索</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>勝手に補完しないので根拠を追える</td></tr>
+    <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
+    <tr><td>社内規程・マニュアルの検索</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>一般知識で補完しないため根拠を追える</td></tr>
     <tr><td>分厚い資料の横断調査</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>100ページ超でも扱える</td></tr>
-    <tr><td>契約書・仕様書の矛盾チェック</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォートは「高〜超高」。見落としのコストが大きい</td></tr>
-    <tr><td>競合・市場の調査</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>出典を必ず確認する</td></tr>
+    <tr><td>契約書・仕様書の矛盾チェック</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォートは「高〜超高」。見落としのコストが待ち時間を上回る</td></tr>
+    <tr><td>競合・市場の調査</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>出典を確認する</td></tr>
     <tr><td>数値データの異常検知</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>手順が固定なのでスクリプト化が確実</td></tr>
   </table></div>
 
   <div class="term"><h3>C. 集める・整える（データ）</h3>
   <table>
-    <tr><th>業務</th><th>度合い</th><th>最適ツール</th><th>補足</th></tr>
+    <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr><td>複数ファイルの集計・突合</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>フォルダを渡すだけ</td></tr>
     <tr><td>毎週・毎月の定期レポート</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>時刻を指定して自動実行</td></tr>
     <tr><td>外部サービスからのデータ取り込み</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>手順が固定ならスクリプトが確実。他の人にも渡せる</td></tr>
-    <tr><td>大量データの取り込み・分析</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>件数が多いほど開発型が有利（→第3部の実例）</td></tr>
+    <tr><td>大量データの取り込み・分析</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>件数が多いほど開発型が有利（第3部の実例を参照）</td></tr>
     <tr><td>ファイルの命名・仕分け</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
   </table></div>
 
   <div class="term"><h3>D. 作る（ビジュアル・ツール）</h3>
   <table>
-    <tr><th>業務</th><th>度合い</th><th>最適ツール</th><th>補足</th></tr>
+    <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr><td>バナー・資料デザインの量産</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">デザイン型</b></td><td>社内のロゴ・配色を読み込ませるとブランドが揃う</td></tr>
-    <tr><td>画像の生成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dsn">デザイン型</b></td><td>Images 2.0。日本語テキストも描ける。商用利用可</td></tr>
-    <tr><td>業務ツールの自作</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>あとで直し続けるならこちら</td></tr>
+    <tr><td>画像の生成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dsn">デザイン型</b></td><td>ChatGPT Images 2.0、Gemini Nano Banana Pro など</td></tr>
+    <tr><td>図解・インフォグラフィックの作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>日本語の文字入り画像はNano Banana Proが安定</td></tr>
+    <tr><td>業務ツールの自作</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>継続的に手を入れる場合</td></tr>
     <tr><td>社内向けの1枚ツール</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>HTML1枚で完結するならCoworkが速い</td></tr>
     <tr><td>社内マニュアルの整備</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
   </table></div>
 
   <div class="term"><h3>E. 考える・決める</h3>
   <table>
-    <tr><th>業務</th><th>度合い</th><th>最適ツール</th><th>補足</th></tr>
-    <tr><td>アイデア出し・企画の壁打ち</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td><b>自動化しないほうがいい。</b>往復してこそ質が上がる</td></tr>
-    <tr><td>分析結果からの施策立案</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>分析（自動）と立案（人）を分けるのがコツ</td></tr>
-    <tr><td>意思決定の材料づくり</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォート「最大」。判断そのものは人がする</td></tr>
-    <tr><td>採用・評価・人事判断</td><td><b class="b lv-no">任せない</b></td><td>—</td><td>参考意見までに留める</td></tr>
+    <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
+    <tr><td>アイデア出し・企画の検討</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>往復して精度を上げる性質の作業</td></tr>
+    <tr><td>分析結果からの施策立案</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>分析（自動）と立案（人）を分ける</td></tr>
+    <tr><td>意思決定の材料づくり</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォート「最大」。判断そのものは人が行う</td></tr>
+    <tr><td>採用・評価・人事判断</td><td><b class="b lv-no">任せない</b></td><td>—</td><td>参考意見に留める</td></tr>
   </table></div>
 
-  <div class="term"><h3>自動化しにくい業務</h3>
-  <p>以下は無理に自動化しないでください。手戻りのほうが高くつきます。</p>
+  <div class="term"><h3>自動化に向かない業務</h3>
   <ul>
-    <li><b>例外処理が多い業務</b>（毎回イレギュラーが出る）</li>
-    <li><b>正解が一つに決まらない創造的判断</b></li>
-    <li><b>最終責任を伴う判断</b>（契約、人事、法務の確定）</li>
-    <li><b>相手の感情が絡むコミュニケーション</b></li>
-  </ul></div>
+    <li>例外処理が多い業務（毎回イレギュラーが発生する）</li>
+    <li>正解が一つに定まらない創造的判断</li>
+    <li>最終責任を伴う判断（契約、人事、法務の確定）</li>
+    <li>相手の感情が絡むコミュニケーション</li>
+  </ul>
+  <p style="margin-top:10px">無理に自動化すると、手戻りのコストが削減分を上回ります。</p></div>
 </section>
 
 <!-- 第3部 -->
 <section class="part" data-part="p3">
   <h2>第 3 部</h2>
-  <div class="part-sub">自動化の進め方</div>
-  <p class="lead">いきなり全自動を目指すと失敗します。</p>
+  <div class="part-sub">導入の進め方</div>
 
-  <div class="term"><h3>順序を守る</h3>
+  <div class="term"><h3>3段階で進める</h3>
   <ol>
-    <li><b>まず手でやってみる。</b>そのとき手順を箇条書きにする。ここが設計図になります</li>
-    <li><b>半自動でしばらく回す。</b>AIが作り、人が毎回チェックする。ここで精度と例外が見えます</li>
-    <li><b>精度が見えてから全自動化する。</b>定期実行に載せるのは最後</li>
+    <li><b>手作業でやってみる。</b>そのとき手順を箇条書きにする。これが設計図になる</li>
+    <li><b>半自動で運用する。</b>AIが作り、人が毎回チェックする。ここで精度と例外が見える</li>
+    <li><b>精度を確認してから全自動化する。</b>定期実行に載せるのは最後</li>
   </ol>
-  <div class="warn"><p><b>②を飛ばさないでください。</b>AIの出力が的外れでも気づけないまま回り続けるのが、いちばん危険な失敗です。</p></div></div>
+  <div class="note"><p>②を省略すると、AIの出力が的外れでも気づかないまま運用が続きます。最初の1〜2か月は人が見る前提で組んでください。</p></div></div>
 
   <div class="term"><h3>実例：大量クリエイティブの分析</h3>
-  <p>「1,000件のクリエイティブ（画像URL）と数値を取り込み、勝ちパターンを資料化し、次の案を出す」を例に、設計の考え方を示します。</p>
-  <p><strong>そのままAIに投げると破綻します。</strong>画像1枚は約1,000〜2,000トークン。1,000枚なら<strong>100万トークンを超え</strong>、一度に扱える上限（約20万トークン）を大きく突破します。</p>
-  <p class="tlabel">正しい設計は「絞ってから見せる」</p>
+  <p>「1,000件のクリエイティブ（画像URL）と数値を取り込み、勝ちパターンを資料化し、次の案を出す」という業務での設計例です。</p>
+  <p>全件をそのままAIに渡すと破綻します。画像1枚は約1,000〜2,000トークン。1,000枚なら100万トークンを超え、一度に扱える上限（約20万トークン）を大きく超過します。そこで、<strong>数値で絞ってから画像を見せる</strong>構成にします。</p>
   <table>
     <tr><th>工程</th><th>やること</th><th>ツール</th><th>度合い</th></tr>
     <tr><td>① 取り込み</td><td>URLから画像と数値を収集</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-auto">全自動</b></td></tr>
-    <tr><td>② 絞り込み</td><td><b>数値だけで</b>上位・下位を抽出</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-auto">全自動</b></td></tr>
-    <tr><td>③ 言語化</td><td>上位20件・下位20件の<b>画像だけ</b>を見せて共通点を出す</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-half">半自動</b></td></tr>
+    <tr><td>② 絞り込み</td><td>数値だけで上位・下位を抽出</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-auto">全自動</b></td></tr>
+    <tr><td>③ 言語化</td><td>上位20件・下位20件の画像だけを見せて共通点を出す</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-half">半自動</b></td></tr>
     <tr><td>④ 資料化</td><td>勝ちパターンをレポートにまとめる</td><td><b class="b typ-dev">開発型</b> <b class="b typ-work">作業代行型</b></td><td><b class="b lv-half">半自動</b></td></tr>
     <tr><td>⑤ 案出し</td><td>勝ちパターンから次の案を出す</td><td><b class="b typ-chat">チャット型</b></td><td><b class="b lv-help">支援</b></td></tr>
     <tr><td>⑥ ビジュアル化</td><td>案を実際の画像にする</td><td><b class="b typ-dsn">デザイン型</b></td><td><b class="b lv-half">半自動</b></td></tr>
   </table>
-  <p style="margin-top:12px">②で数値だけを使うのがポイントです。画像を見る必要がないので一瞬で終わり、③に渡るのは40枚だけ。<strong>100万トークンが数万トークンに落ちます。</strong></p>
-  <div class="callout"><p><b>⑤だけは自動化しないでください。</b>案出しは正解が一つに決まらないので、人と往復してこそ質が上がります。「もっと外して」「この方向で3案」と方向を変えられることに価値があります。</p></div>
-  <p style="margin-top:12px"><strong>①〜④は開発型が最適です。</strong>毎月回す作業で手順が固定しているため、スクリプトとして残る意味が大きい。</p></div>
+  <p style="margin-top:12px">②で画像を扱わないため処理は一瞬で終わり、③に渡るのは40枚だけ。100万トークンが数万トークンに収まります。</p>
+  <p>⑤は自動化の対象外です。案出しは正解が一つに定まらないため、方向を変えながら往復する余地を残したほうが結果が良くなります。①〜④は毎月同じ手順で回るので、スクリプトとして残る開発型が適します。</p></div>
 </section>
 
 <!-- 第4部 -->
 <section class="part" data-part="p4">
   <h2>第 4 部</h2>
-  <div class="part-sub">ツール別ガイド</div>
-  <p class="lead">選ぶときに開いてください。</p>
+  <div class="part-sub">ツール別の詳細</div>
 
   <div class="term"><h3>Claude<span class="en">クロード</span> <b class="b typ-chat">チャット型</b></h3>
-  <p>Anthropic社のAIアシスタント。長い文章の読み書き、機微な文書、丁寧な推敲に強みがあります。</p>
+  <p>Anthropic社のAIアシスタント。長文の読み書き、機微な文書、推敲に強みがあります。</p>
   <ul>
     <li><b>向いている</b>：相談、下書き、推敲、資料を貼っての質問</li>
     <li><b>向かない</b>：手元のファイルを直接書き換えること、繰り返し実行する作業</li>
   </ul></div>
 
   <div class="term"><h3>Claude Code <b class="b typ-dev">開発型</b></h3>
-  <p>コードを読み書きするAIエージェント。<strong>やりとりはチャット形式</strong>で日本語で頼めます。ターミナルが原点ですが、デスクトップアプリ・Web・VS Codeなどのエディタ拡張でも同じことができます。</p>
+  <p>コードを読み書きするAIエージェント。やりとりはチャット形式で、日本語で指示できます。ターミナルが原点ですが、デスクトップアプリ・Web・VS Codeなどのエディタ拡張でも同じことができます。</p>
   <ul>
-    <li><b>向いている</b>：あとで何度も直すコード、手順が固定した業務自動化。変更履歴が残るので壊しても戻せます</li>
+    <li><b>向いている</b>：継続的に手を入れるコード、手順が固定した業務自動化</li>
     <li><b>向かない</b>：一度きりの書類作成</li>
+    <li><b>特徴</b>：変更履歴が残るため、壊しても元に戻せる</li>
   </ul></div>
 
   <div class="term"><h3>Cowork<span class="en">コワーク</span> <b class="b typ-work">作業代行型</b></h3>
-  <p><strong>フォルダを渡すと、ファイルを読んで成果物を作って返してくれます</strong>。ダウンロードという工程がないのが特徴です。</p>
+  <p>フォルダを渡すと、ファイルを読んで成果物を作って返します。ダウンロードの工程がない点が特徴です。</p>
   <ul>
     <li><b>向いている</b>：フォルダ内の資料整理、定期レポート、1枚で完結するツール、決まった時刻に走らせる作業</li>
-    <li><b>向かない</b>：継続的に育てるコード。作業環境が毎回リセットされ、変更履歴も残りません</li>
+    <li><b>向かない</b>：継続的に育てるコード。作業環境が毎回リセットされ、変更履歴も残らない</li>
   </ul>
-  <div class="callout"><p><b>Claude Codeとの境界線：あとでまた直すならCode、一度作って終わりならCowork。</b></p></div></div>
+  <div class="note"><p>Claude Codeとの境界は、<b>継続的に手を入れるかどうか</b>です。育てるならCode、一度作って終わりならCowork。</p></div></div>
 
   <div class="term"><h3>Claude Design <b class="b typ-dsn">デザイン型</b></h3>
-  <p>テキスト指示でUI・バナー・LP・資料のビジュアルを生成（2026年4月公開）。<strong>社内のロゴ・配色・コンポーネントを読み込ませる</strong>と、それに沿った成果物を出せます。Claude Codeとの双方向連携、Canva・Adobe・Miroへの書き出しに対応。</p>
+  <p>テキスト指示でUI・バナー・LP・資料のビジュアルを生成します（2026年4月公開）。社内のロゴ・配色・コンポーネントをデザインシステムとして読み込ませると、それに沿った成果物を出せます。Claude Codeとの双方向連携、Canva・Adobe・Miroへの書き出しに対応。</p>
   <ul>
     <li><b>向いている</b>：ブランドを揃えたバナー・資料・画面デザインの量産</li>
-    <li><b>向かない</b>：文章中心の仕事</li>
+    <li><b>向かない</b>：文章中心の作業</li>
   </ul></div>
 
   <div class="term"><h3>ChatGPT <b class="b typ-chat">チャット型</b></h3>
-  <p>OpenAI社のAIアシスタント。最も普及しており、情報も多い。</p>
+  <p>OpenAI社のAIアシスタント。利用者が最も多く、参考情報も豊富です。</p>
   <ul>
     <li><b>向いている</b>：汎用的な相談、下書き、アイデア出し、画像生成</li>
-    <li><b>画像生成（Images 2.0）</b>：2026年4月から、ChatGPT・Codex・APIのいずれからも生成可能。日本語テキストの描画精度が高く、1回で最大8枚まで同時生成。商用利用可</li>
+    <li><b>画像生成（Images 2.0）</b>：2026年4月から、ChatGPT・Codex・APIのいずれからも利用可。日本語テキストの描画精度が高く、1回で最大8枚まで同時生成。商用利用可。思考モードはPlus以上</li>
   </ul></div>
 
   <div class="term"><h3>Codex<span class="en">コーデックス</span> <b class="b typ-dev">開発型</b></h3>
-  <p>OpenAI社の開発者向けエージェント。<strong>Claude Codeと同じ立ち位置</strong>です。</p>
+  <p>OpenAI社の開発者向けエージェント。Claude Codeと同じ位置づけです。</p>
   <ul>
     <li><b>向いている</b>：コードを書く・直す、手順が固定した業務自動化</li>
-    <li><b>画像生成</b>：Images 2.0 が Codex からも呼べるため、<b>生成してそのまま組み込む</b>流れが1環境で完結します</li>
-    <li><b>選び方</b>：普段ChatGPTを使っているならCodex、Claudeを使っているならClaude Code。併用の必要はありません</li>
-  </ul></div>
+    <li><b>画像生成</b>：Images 2.0 を Codex から呼べるため、生成して組み込む流れが1環境で完結する</li>
+  </ul>
+  <div class="note"><p><b>Claude Codeとの選び方。</b>普段使っているサービス側に合わせるのが、契約とアカウント管理の面ではシンプルです。ただし両者は得意分野が異なり、同じ課題を両方に投げて出力を比べる使い方も一般的です。片方に絞らなければならない理由はないので、重要な作業では併用も検討してください。</p></div></div>
 
   <div class="term"><h3>Gemini<span class="en">ジェミニ</span> <b class="b typ-chat">チャット型</b></h3>
   <p>Google社のAI。</p>
   <ul>
-    <li><b>向いている</b>：Googleドキュメント、スプレッドシート、Gmailと絡む業務</li>
-    <li><b>向かない</b>：Workspaceの外での作業</li>
-  </ul></div>
+    <li><b>向いている</b>：Googleドキュメント、スプレッドシート、Gmailと絡む業務、画像生成</li>
+    <li><b>向かない</b>：Workspaceの外での文章作業（他のチャット型で足りる）</li>
+  </ul>
+  <p class="tlabel">画像生成（Nano Banana Pro）</p>
+  <p>Geminiの画像生成モデルは通称「Nano Banana」系で、上位版が <strong>Nano Banana Pro</strong>（正式名称 Gemini 3 Pro Image）です。従来版の弱点だった文字の崩れと低解像度が大きく改善され、<strong>日本語の文字が入った図解やバナーを作りやすくなりました</strong>。最大6枚の画像を光や影を揃えて合成する機能もあります。</p>
+  <p>無料プランは1日約3枚、Google AI Pro（月額約2,900円）で1日約100枚。ただしProで生成するには標準版で作ってから「Proで再生成」する2ステップが必要で、<strong>生成枠を2回分消費します</strong>。</p></div>
 
   <div class="term"><h3>Gemini Notebook<span class="en">旧 NotebookLM</span> <b class="b typ-doc">資料限定型</b></h3>
-  <p>アップロードした資料<strong>だけ</strong>を根拠に答えるツール。2026年7月に「NotebookLM」から改称されました。</p>
+  <p>アップロードした資料だけを根拠に答えるツール。2026年7月に「NotebookLM」から改称されました。</p>
   <ul>
-    <li><b>向いている</b>：分厚いマニュアルや過去議事録の調査。勝手に補完しないので根拠を追えます</li>
-    <li><b>向かない</b>：資料の外側の話</li>
+    <li><b>向いている</b>：分厚いマニュアルや過去議事録の調査。根拠を追える</li>
+    <li><b>向かない</b>：アップロードしていない情報に関する質問。手元の資料に書かれていないことは答えられない</li>
   </ul></div>
 </section>
 
 <!-- 第5部 -->
 <section class="part" data-part="p5">
   <h2>第 5 部</h2>
-  <div class="part-sub">用語と考え方</div>
-  <p class="lead">詰まったときに引いてください。</p>
+  <div class="part-sub">用語集</div>
 
-  <div class="term"><h3>生成AI / LLM / プロンプト</h3>
-  <p><b>生成AI</b>は文章・画像・コードなどを新しく作り出すAI。検索が「探して見せる」のに対し、生成AIは「その場で書く」。だから正解が保証されていません。</p>
-  <p><b>LLM（大規模言語モデル）</b>はChatGPTやClaudeの中身。<strong>意味を理解しているというより、それらしい続きを非常に上手に組み立てている</strong>と捉えると挙動が腑に落ちます。</p>
-  <p><b>プロンプト</b>はAIへの指示文。AI活用の巧拙はほぼここで決まります。</p></div>
+  <div class="term"><h3>基本</h3>
+  <dl>
+    <dt>生成AI</dt><dd>文章・画像・コードなどを新しく作り出すAI。検索が既存の情報を探して見せるのに対し、生成AIはその場で文章を組み立てます。そのため正解は保証されません。</dd>
+    <dt>LLM（大規模言語モデル）</dt><dd>ChatGPTやClaudeの中身。膨大な文章から「次に来る言葉」を予測する仕組みで動いています。意味を理解しているというより、それらしい続きを高い精度で組み立てている、という理解が実態に近いです。</dd>
+    <dt>プロンプト</dt><dd>AIへの指示文。出力の質はここでほぼ決まります。</dd>
+    <dt>マルチモーダル</dt><dd>文字だけでなく画像・音声・PDFも扱えること。</dd>
+    <dt>API</dt><dd>プログラムからAIを呼び出す仕組み。アプリの画面を経由せず自社システムに組み込むときに使います。料金はトークン単位の従量課金。</dd>
+  </dl></div>
 
-  <div class="term"><h3>ハルシネーション<span class="en">Hallucination</span></h3>
-  <p>AIが事実でないことを自信たっぷりに書く現象。<strong>悪意でも故障でもなく、仕組み上どうしても起きます</strong>。ゼロにはできないので、確認する運用でカバーします。</p></div>
+  <div class="term"><h3>精度と限界</h3>
+  <dl>
+    <dt>ハルシネーション</dt><dd>AIが事実でないことを、自信のある書き方で出力する現象。仕組み上どうしても発生するもので、故障ではありません。ゼロにはできないため、確認する運用でカバーします。</dd>
+    <dt>知識のカットオフ</dt><dd>モデルが学習した情報の締め切り時点。それ以降の出来事は知りません。最近の情報が必要なときは、検索機能を使うか、資料を添付します。</dd>
+    <dt>グラウンディング</dt><dd>出力を実在の情報源に紐づけること。検索結果や添付資料を根拠にさせると、ハルシネーションが減り、出典を確認できます。</dd>
+    <dt>RAG（検索拡張生成）</dt><dd>指定した資料に基づいて答えさせる仕組み。資料限定型はこれに特化したツールです。</dd>
+    <dt>埋め込み（ベクトル検索）</dt><dd>文章を数値の並びに変換し、意味の近さで検索する技術。キーワードが一致しなくても内容が近い文書を拾えます。RAGの内部で使われています。</dd>
+  </dl></div>
 
-  <div class="term"><h3>トークン / コンテキストウィンドウ</h3>
-  <p><b>トークン</b>はAIが文章を処理する単位。日本語は1文字＝1〜2トークン。<b>コンテキストウィンドウ</b>は一度に扱える上限で、おおむね20万トークン前後です。「さっき伝えたのに忘れている」の正体はたいていこれ。</p>
+  <div class="term"><h3>分量とコスト</h3>
+  <p><b>トークン</b>はAIが文章を処理する単位。日本語は1文字＝1〜2トークン。料金や上限はこの単位で数えます。</p>
   <table>
     <tr><th>依頼の例</th><th class="nm">トークン目安</th></tr>
     <tr><td>「これ英語で何て言う？」</td><td class="nm">〜100</td></tr>
@@ -360,80 +350,92 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr><td>30ページのPDFを要約</td><td class="nm">約60,000</td></tr>
     <tr><td>100ページの規程集をチェック</td><td class="nm">約150,000〜</td></tr>
   </table>
-  <div class="warn"><p><b>会話は毎回、最初から全部読み直されます。</b>長い会話ほど1回あたりが重くなるので、<b>話題が変わったら新しい会話を立てる</b>のが有利です。</p></div></div>
+  <p style="margin-top:12px"><b>コンテキストウィンドウ</b>は一度に扱える情報量の上限で、おおむね20万トークン前後です。会話が長くなると古い部分から実質的に薄れるため、「先に伝えたのに反映されない」という現象が起きます。</p>
+  <div class="note"><p>会話は毎回すべて読み直されます。10往復目の発言は、それまでの全履歴分のトークンを消費します。話題が変わったら新しい会話を立てるほうが速く、消費も抑えられます。</p></div></div>
 
-  <div class="term"><h3>モデル<span class="en">Model</span></h3>
-  <p>AIの種類・世代。<strong>難しい仕事は高性能モデル、単純作業は軽量モデル</strong>が基本。</p>
+  <div class="term"><h3>モデルと設定</h3>
+  <p><b>モデル</b>はAIの種類・世代。同じサービスでも選ぶモデルで賢さ・速さ・コストが変わります。難しい仕事は高性能モデル、単純作業は軽量モデルが基本です。</p>
   <table>
     <tr><th style="width:34%">Claudeのモデル（※2026年7月時点）</th><th>位置づけ</th></tr>
     <tr><td><b>Fable 5</b></td><td>最も困難な課題に</td></tr>
     <tr><td><b>Opus 5</b></td><td>複雑なタスク向け</td></tr>
     <tr><td><b>Sonnet 5</b></td><td>日常のタスクに最も効率的</td></tr>
     <tr><td><b>Haiku 4.5</b></td><td>素早い回答に最適</td></tr>
-  </table></div>
+  </table>
+  <dl>
+    <dt>推論モデル（リーズニングモデル）</dt><dd>答える前に内部で考える工程を持つモデル。計算や複雑な検討で精度が上がる代わりに、時間とコストが増えます。</dd>
+    <dt>温度（Temperature）</dt><dd>出力のばらつきを決める設定。低いと堅実で再現性が高く、高いと発想が広がる代わりに不安定になります。アプリ画面では触れないことが多く、主にAPI利用時の設定項目です。</dd>
+    <dt>ファインチューニング</dt><dd>特定の業務データを追加学習させ、モデル自体を専用化すること。効果は大きい一方、費用と手間がかかります。多くの業務は、資料を渡すRAGで足ります。</dd>
+    <dt>オープンウェイトモデル</dt><dd>中身が公開されており、自社サーバーで動かせるモデル。外部にデータを出せない業務で選択肢になります。</dd>
+  </dl></div>
 
   <div class="term"><h3>エフォート<span class="en">Effort</span></h3>
-  <p>AIに「どれくらい考えてから答えるか」を指定する設定。高くすると回答は徹底的になりますが、<strong>時間がかかり、利用制限もより速く消費します</strong>。「高いほど良い」ではありません。</p>
+  <p>考える量を指定する設定。高くすると回答は徹底的になりますが、時間がかかり、利用制限も速く消費します。</p>
   <table>
     <tr><th style="width:26%">Claudeの表示</th><th>使いどころ</th></tr>
-    <tr><td><b class="b lv-auto">低</b></td><td>即答がほしい単純作業</td></tr>
-    <tr><td><b class="b lv-help">中</b></td><td>軽い調べもの、下書き</td></tr>
-    <tr><td><b class="b lv-half">高</b>（デフォルト）</td><td>通常はこのままで問題ありません</td></tr>
-    <tr><td><b class="b lv-no">超高</b></td><td>込み入った検討・分析</td></tr>
-    <tr><td><b class="b lv-no">最大</b></td><td>制限を気にせず最高精度が要るとき</td></tr>
+    <tr><td><b>低</b></td><td>即答がほしい単純作業</td></tr>
+    <tr><td><b>中</b></td><td>軽い調べもの、下書き</td></tr>
+    <tr><td><b>高</b>（デフォルト）</td><td>通常はこのまま</td></tr>
+    <tr><td><b>超高</b></td><td>込み入った検討・分析</td></tr>
+    <tr><td><b>最大</b></td><td>制限を気にせず最高精度が要るとき</td></tr>
   </table>
-  <p style="margin-top:12px">ChatGPTは設定が4項目に分かれています（<strong>モデル / 推論レベル / 速度 / 詳細設定</strong>）。エフォートにあたるのは「推論レベル」で、Claudeと違い「速度」が独立しています。</p>
-  <div class="callout"><p><b>運用ルール：</b>基本は「高」のまま触らない。急ぐ単純作業のときだけ下げ、どうしても精度が要る場面だけ上げる。</p></div></div>
+  <p style="margin-top:12px">ChatGPTは設定が4項目に分かれています（モデル / 推論レベル / 速度 / 詳細設定）。エフォートにあたるのは「推論レベル」で、Claudeと違い「速度」が独立しています。</p>
+  <div class="note"><p>運用としては、基本は「高」のまま使い、急ぐ単純作業だけ下げ、精度が要る場面だけ上げる形が扱いやすいです。</p></div></div>
 
-  <div class="term"><h3>RAG / MCP / スキル / Human in the Loop</h3>
-  <ul>
-    <li><b>RAG（検索拡張生成）</b>：指定した資料に基づいて答えさせる仕組み。ハルシネーションが減り、根拠を追えます。資料限定型はこれに特化したツール</li>
-    <li><b>MCP（コネクタ）</b>：AIを外部ツール（カレンダー、ストレージ、社内システム）につなぐ共通規格。<b>AIが自分のデータを見に行けるようになる</b>のがポイント</li>
-    <li><b>スキル / プラグイン</b>：よく使う手順をパッケージ化して覚えさせる仕組み。「議事録は必ずこの形式で」といった型を再利用できます</li>
-    <li><b>Human in the Loop</b>：人間が必ず途中に入る設計。<b>責任の所在は常に人間側にある</b>という原則</li>
-    <li><b>AIエージェント</b>：複数の手順を自分で判断しながら実行するAI。作業代行型・開発型がこれにあたります</li>
-    <li><b>マルチモーダル</b>：文字だけでなく画像・音声・PDFも扱えること</li>
-  </ul></div>
+  <div class="term"><h3>拡張と自動化</h3>
+  <dl>
+    <dt>AIエージェント</dt><dd>複数の手順を自分で判断しながら実行するAI。作業代行型・開発型がこれにあたります。</dd>
+    <dt>サブエージェント</dt><dd>大きな作業を分担させるため、AIが別のAIを呼び出す仕組み。調査と執筆を分けるといった使い方をします。</dd>
+    <dt>MCP（コネクタ）</dt><dd>AIを外部ツール（カレンダー、ストレージ、社内システム）につなぐ共通規格。AIが自分でデータを見に行けるようになります。</dd>
+    <dt>スキル / プラグイン</dt><dd>よく使う手順をパッケージ化して覚えさせる仕組み。「議事録はこの形式で」といった型を毎回説明せずに再利用できます。</dd>
+    <dt>Human in the Loop</dt><dd>人間が必ず途中に入る設計。責任の所在を人間側に置くための考え方です。</dd>
+    <dt>ガードレール</dt><dd>AIが出力してはいけない内容を制限する仕組み。社内ルールを守らせるために設定します。</dd>
+  </dl></div>
 
-  <div class="term"><h3>出力の質を上げる5つのコツ</h3>
+  <div class="term"><h3>セキュリティ</h3>
+  <dl>
+    <dt>プロンプトインジェクション</dt><dd>攻撃者が資料やWebページに仕込んだ文章を、AIが指示として読み取ってしまう攻撃。外部から取り込んだ文書をAIに読ませる場合は、出力に不自然な指示が混じっていないか確認が必要です。社外から届いたファイルをそのままAIに処理させる運用は避けてください。</dd>
+  </dl></div>
+
+  <div class="term"><h3>使い方のコツ</h3>
   <ol>
-    <li><b>役割を与える</b>：「あなたは経験10年の法務担当です」と前置きするだけで語彙も観点も変わります</li>
-    <li><b>前提と制約を渡す</b>：目的・読み手・分量・トーン・使ってはいけない表現。この5つで質が跳ね上がります</li>
-    <li><b>例を見せる</b>：過去の良い成果物を2〜3個貼る。言葉で説明するより速く正確に伝わります</li>
-    <li><b>段階的に考えさせる</b>：「結論の前に判断の過程を書いて」と頼むと精度が上がります</li>
-    <li><b>一発で終わらせない</b>：最初の出力は下書き。往復するのが正しい使い方です</li>
+    <li><b>役割を与える</b> … 「経験10年の法務担当として」と前置きするだけで語彙も観点も変わります</li>
+    <li><b>前提と制約を渡す</b> … 目的・読み手・分量・トーン・使ってはいけない表現の5点</li>
+    <li><b>例を見せる</b> … 過去の良い成果物を2〜3個貼る。説明するより正確に伝わります</li>
+    <li><b>段階的に考えさせる</b> … 「結論の前に判断の過程を書いて」と頼むと精度が上がります</li>
+    <li><b>一発で終わらせない</b> … 最初の出力は下書き。往復を前提にする</li>
   </ol>
-  <p style="margin-top:10px"><strong>プロンプトの文言をいじるより、渡す材料を整えるほうが効果が大きい</strong>（コンテキストエンジニアリング）。関連資料、過去の議事録、フォーマット見本を揃えることを優先してください。</p></div>
+  <p style="margin-top:10px">プロンプトの文言を調整するより、渡す材料を整えるほうが効果が大きい傾向があります（コンテキストエンジニアリング）。関連資料、過去の議事録、フォーマット見本を揃えることを優先してください。</p></div>
 </section>
 
 <!-- 第6部 -->
 <section class="part" data-part="p6">
   <h2>第 6 部</h2>
-  <div class="part-sub">守ってほしいルール</div>
+  <div class="part-sub">運用ルール</div>
 
-  <div class="term"><h3>入れてはいけない情報</h3>
+  <div class="term"><h3>入力してはいけない情報</h3>
   <ul>
     <li>顧客の個人情報、取引先の非公開情報</li>
     <li>未公開の財務数値、人事情報</li>
     <li>パスワード、APIキー、認証情報</li>
   </ul>
-  <p style="margin-top:8px">判断に迷ったら「これが外部に出ても困らないか」で考えてください。困るなら入れない。</p></div>
+  <p style="margin-top:8px">判断基準は「これが外部に出ても困らないか」です。困るものは入力しない。</p></div>
 
-  <div class="term"><h3>学習利用のオンオフ</h3>
-  <p>入力内容がAIの学習に使われるかは、プラン・設定で変わります。法人契約では通常オフですが、<strong>個人アカウントでの業務利用は避けてください</strong>。</p></div>
+  <div class="term"><h3>学習利用の設定</h3>
+  <p>入力内容がAIの学習に使われるかは、プラン・設定によって変わります。法人契約では通常オフですが、個人アカウントでの業務利用は避けてください。</p></div>
 
-  <div class="term"><h3>出力の責任は使う人にある</h3>
-  <p>AIが書いた文章でも、送信ボタンを押すのは人間です。特に<strong>数字と人名と法令</strong>は必ず確認してください。</p></div>
+  <div class="term"><h3>出力の責任</h3>
+  <p>AIが書いた文章でも、送信するのは人間です。数字・人名・法令は必ず確認してください。</p></div>
 
   <div class="term"><h3>著作権と社外公開</h3>
   <p>AIが生成した文章や画像をそのまま社外公開する場合は、事前に確認をとってください。既存著作物に酷似するケースがまれにあります。</p></div>
 
-  <div class="term"><h3>まとめ：3つだけ持ち帰るなら</h3>
-  <div class="callout"><p>
-  1. <b>自分の業務を「全自動 / 半自動 / 支援」に仕分ける。</b>全部を自動化しようとしない。<br>
-  2. <b>ツールは「成果物がどこに残るか」で選ぶ。</b>賢さの差ではありません。<br>
-  3. <b>半自動を飛ばさない。</b>人が確認する期間を経てから全自動にする。
-  </p></div></div>
+  <div class="term"><h3>運用の原則</h3>
+  <ol>
+    <li>業務を「全自動 / 半自動 / 支援」に仕分ける。すべてを自動化しようとしない</li>
+    <li>ツールは成果物の置き場所で選ぶ。性能の差ではない</li>
+    <li>半自動の期間を経てから全自動にする</li>
+  </ol></div>
 </section>
 
 <footer>
@@ -470,7 +472,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     });
     emptyEl.style.display = shown ? 'none' : 'block';
     countEl.textContent = (kw || filter !== 'all') ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
-    try { localStorage.setItem('aiGuideFilter2', filter); } catch(e){}
+    try { localStorage.setItem('aiGuideFilter3', filter); } catch(e){}
   }
 
   tabs.forEach(function(b){
@@ -485,7 +487,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   q.addEventListener('input', apply);
 
   try {
-    var saved = localStorage.getItem('aiGuideFilter2');
+    var saved = localStorage.getItem('aiGuideFilter3');
     if (saved) {
       var m = tabs.filter(function(x){ return x.dataset.f === saved; })[0];
       if (m) { tabs.forEach(function(x){ x.classList.remove('on'); }); m.classList.add('on'); filter = saved; }
