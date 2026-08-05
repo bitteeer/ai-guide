@@ -106,6 +106,10 @@ th { background: var(--paper); font-size: 12px; color: var(--muted); font-weight
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
 .empty { display: none; color: var(--muted); font-size: 14px; padding: 30px 0; text-align: center; }
 .hidden { display: none !important; }
+mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; }
+#toTop { position: fixed; right: 20px; bottom: 20px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 16px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.10); opacity: 0; pointer-events: none; transition: opacity .18s; z-index: 40; }
+#toTop.show { opacity: 1; pointer-events: auto; }
+#toTop:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (max-width: 620px) {
   .wrap { padding: 26px 16px 60px; }
@@ -774,6 +778,8 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 
 </div>
 
+<button id="toTop" title="先頭に戻る" aria-label="先頭に戻る">&#8593;</button>
+
 <script>
 (function(){
   var terms = Array.prototype.slice.call(document.querySelectorAll('.term'));
@@ -787,12 +793,41 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 
   terms.forEach(function(t){ t._text = (t.textContent || '').toLowerCase(); });
 
+  function clearMarks(el){
+    var ms = el.querySelectorAll('mark');
+    for (var i = 0; i < ms.length; i++) {
+      var m = ms[i], p = m.parentNode;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      p.normalize();
+    }
+  }
+  function markText(el, kw){
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(n){
+      var s = n.nodeValue, low = s.toLowerCase(), idx = low.indexOf(kw);
+      if (idx === -1) return;
+      var frag = document.createDocumentFragment(), last = 0;
+      while (idx !== -1) {
+        frag.appendChild(document.createTextNode(s.slice(last, idx)));
+        var mk = document.createElement('mark');
+        mk.textContent = s.slice(idx, idx + kw.length);
+        frag.appendChild(mk);
+        last = idx + kw.length;
+        idx = low.indexOf(kw, last);
+      }
+      frag.appendChild(document.createTextNode(s.slice(last)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+
   var rows  = Array.prototype.slice.call(document.querySelectorAll('tr[data-role]'));
   var rtabs = Array.prototype.slice.call(document.querySelectorAll('.rtab'));
 
   function apply(){
     var kw = q.value.trim().toLowerCase();
     var shown = 0;
+    terms.forEach(clearMarks);
     rows.forEach(function(r){
       if (!role) { r.classList.remove('hidden'); return; }
       var v = r.dataset.role.split(' ');
@@ -809,6 +844,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     parts.forEach(function(p){
       p.classList.toggle('hidden', p.querySelectorAll('.term:not(.hidden)').length === 0);
     });
+    if (kw) terms.forEach(function(t){ if (!t.classList.contains('hidden')) markText(t, kw); });
     emptyEl.style.display = shown ? 'none' : 'block';
     countEl.textContent = (kw || filter !== 'all' || role) ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
     try { localStorage.setItem('aiGuideFilter8', filter); localStorage.setItem('aiGuideRole', role); } catch(e){}
@@ -845,6 +881,14 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
       if (rm) { rtabs.forEach(function(x){ x.classList.remove('on'); }); rm.classList.add('on'); role = sr; }
     }
   } catch(e){}
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    toTop.classList.toggle('show', window.scrollY > 400);
+  }, { passive: true });
+  toTop.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   apply();
 })();
