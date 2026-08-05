@@ -113,11 +113,21 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 #toTop.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 #toTop:hover { background: #9c4523; }
 
+#ftoggle { display: none; }
+
 @media (max-width: 620px) {
   .wrap { padding: 26px 16px 60px; }
   header.hero h1 { font-size: 21px; }
   table { font-size: 12.5px; }
   th, td { padding: 7px 8px; }
+  .controls { padding: 10px 0 10px; margin-bottom: 20px; }
+  #ftoggle { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; margin-top: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink); font-family: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+  #ftoggle .fnow { font-weight: 400; font-size: 11.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #ftoggle .farrow { color: var(--muted); font-size: 10px; }
+  .controls .tabs { display: none; }
+  .controls.open .tabs { display: flex; }
+  .controls .count { display: none; }
+  .controls.open .count { display: block; }
 }
 </style>
 </head>
@@ -132,6 +142,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 
 <div class="controls">
   <input id="q" type="search" placeholder="業務名・ツール名・用語で検索（例：議事録、競合調査、Nano Banana、トークン）" autocomplete="off">
+  <button id="ftoggle" type="button" aria-expanded="false"><span>絞り込み</span><span class="fnow" id="fnow"></span><span class="farrow">▼</span></button>
   <div class="tabs">
     <button class="tab on" data-f="all">すべて</button>
     <button class="tab" data-f="req">必読のみ</button>
@@ -188,7 +199,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   <div class="term" data-req="1"><h3>それ以外は確認なしで使えます <b class="b req">必読</b></h3>
   <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは学習に使われない設定です。案件資料、原稿、議事録、社内の数値など、<b>都度確認せずに使ってください。</b></p></div>
   <p style="margin-top:12px">個人のパスワードや社外秘の情報は、共有範囲に注意してください。プロジェクトの参照資料に置くと、そのプロジェクトを使える人全員が見られます。</p>
-  <p style="margin-top:12px">例外は2つあります。</p>
+  <p style="margin-top:12px">ただし、次の場合は例外です。</p>
   <ul>
     <li>先方との取り決めがある案件。AIを使えない場合と、使うツールが指定されている場合があります。ツールを指定されたときは、個人アカウントで使わないでください</li>
     <li>学習に使われるツール（Google AI Studioの無料枠、Google Flow、Microsoft Copilotの個人版）。社外に出せない情報は入れないでください</li>
@@ -201,7 +212,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   </ul></div>
 
   <div class="term" data-req="1"><h3>成果物を他人に共有するときに確認すること <b class="b req">必読</b></h3>
-  <p>AIが書いた文章でも、送信するのは人間です。とくに<b>数字・人名・法令</b>は必ず確認してください。</p>
+  <p>AIが書いたものでも、責任を負うのは出した本人です。とくに<b>数字・人名・法令</b>は必ず確認してください。</p>
   <p style="margin-top:12px">人が確認・修正した原稿は、通常の成果物と同じ扱いです。納品も告知も、AIを使わない場合と変わりません。ただし先方が制作過程の開示を求める場合や、契約でAI利用の申告が定められている場合は、それに従ってください。</p></div>
 
   <div class="term"><h3>薬機法・景表法のチェック</h3>
@@ -794,6 +805,9 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var q = document.getElementById('q');
   var countEl = document.getElementById('count');
+  var ctl = document.querySelector('.controls');
+  var ftog = document.getElementById('ftoggle');
+  var fnow = document.getElementById('fnow');
   var emptyEl = document.getElementById('empty');
   var filter = 'all';
   var role = '';
@@ -854,6 +868,8 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
     if (kw) terms.forEach(function(t){ if (!t.classList.contains('hidden')) markText(t, kw); });
     emptyEl.style.display = shown ? 'none' : 'block';
     countEl.textContent = (kw || filter !== 'all' || role) ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
+    var fb = tabs.filter(function(x){ return x.dataset.f === filter; })[0];
+    fnow.textContent = (fb ? fb.textContent : 'すべて') + (role ? ' / ' + role : '');
     try { localStorage.setItem('aiGuideFilter8', filter); localStorage.setItem('aiGuideRole', role); } catch(e){}
   }
 
@@ -863,6 +879,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
       b.classList.add('on');
       filter = b.dataset.f;
       apply();
+      closePanel();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
@@ -872,7 +889,21 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
       b.classList.add('on');
       role = b.dataset.r;
       apply();
+      closePanel();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  });
+  function closePanel(){
+    if (window.matchMedia('(max-width: 620px)').matches) {
+      ctl.classList.remove('open');
+      ftog.setAttribute('aria-expanded', 'false');
+      ftog.querySelector('.farrow').textContent = '▼';
+    }
+  }
+  ftog.addEventListener('click', function(){
+    var open = ctl.classList.toggle('open');
+    ftog.setAttribute('aria-expanded', open ? 'true' : 'false');
+    ftog.querySelector('.farrow').textContent = open ? '▲' : '▼';
   });
   q.addEventListener('input', apply);
 
