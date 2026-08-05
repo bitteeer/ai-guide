@@ -160,7 +160,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <div class="part-sub">運用ルール</div>
 
   <div class="term"><h3>相談先</h3>
-  <p><strong>MCP・APIなどの接続承認は各上長に依頼してください。</strong></p>
+  <p>MCP・APIなどの接続承認は各上長に依頼してください。</p>
   <table>
     <tr><th style="width:40%"></th><th>担当</th></tr>
     <tr><td><b>全体の相談窓口</b></td><td><b>深井</b></td></tr>
@@ -174,49 +174,50 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 
   <div class="term" data-req="1"><h3>入力してはいけない情報 <b class="b req">必読</b></h3>
   <div class="warn"><p>
-  ・<b>マイナンバー</b><br>
-  ・<b>健康診断結果や病歴などの要配慮個人情報</b>
+  ・マイナンバー<br>
+  ・健康診断結果や病歴などの要配慮個人情報
   </p></div>
-  <p style="margin-top:12px"><b>法令で扱いが定められているため、社内の判断では変えられません。</b></p></div>
+  <p style="margin-top:12px">法令で扱いが定められているため、社内の判断では変えられません。</p></div>
 
   <div class="term" data-req="1"><h3>それ以外は確認なしで使えます <b class="b req">必読</b></h3>
-  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは<b>学習に使われない設定</b>です。入力した内容は<b>応答を作るためだけに使われます。</b>案件資料、原稿、議事録、社内の数値など、都度確認せずに使ってください。</p></div>
-  <div class="warn"><p><b>ただし、個人のパスワードや社外秘の情報を扱うときは、共有範囲に気をつけてください。</b>プロジェクトの参照資料に置くと、そのプロジェクトを使える人全員が見られます。</p></div>
-  <p style="margin-top:12px"><strong>例外は2つ。</strong></p>
+  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは学習に使われない設定です。案件資料、原稿、議事録、社内の数値など、<b>都度確認せずに使ってください。</b></p></div>
+  <p style="margin-top:12px">個人のパスワードや社外秘の情報は、共有範囲に注意してください。プロジェクトの参照資料に置くと、そのプロジェクトを使える人全員が見られます。</p>
+  <p style="margin-top:12px">例外は2つあります。</p>
   <ul>
-    <li><b>先方との取り決めがある案件。</b>AIを使えない場合と、使うツールが指定されている場合があります。<b>クライアントからツールを指定された場合は、個人アカウントで使わないでください。</b>学習の扱いが変わり、先方の前提を満たせないことがあります</li>
-    <li><b>Google AI Studioの無料枠</b>（入力内容がGoogleの改善に使われる場合あり。試作でも社外に出せないデータは入れない）</li>
+    <li>先方との取り決めがある案件。AIを使えない場合と、使うツールが指定されている場合があります。ツールを指定されたときは、個人アカウントで使わないでください</li>
+    <li>学習に使われるツール（Google AI Studioの無料枠、Google Flow、Microsoft Copilotの個人版）。社外に出せない情報は入れないでください</li>
   </ul></div>
 
   <div class="term" data-req="1"><h3>アカウントと履歴 <b class="b req">必読</b></h3>
   <ul>
-    <li><b>業務では会社のアカウントを使ってください。</b>学習オフは会社アカウントのみの設定で、個人アカウントには適用されません</li>
-    <li><b>ChatGPTは共有アカウントのため、会話履歴が全員に見えます。</b>見られたくないやりとりは<b>一時チャット</b>を使うか、終わったら削除</li>
+    <li>業務では会社のアカウントを使ってください。学習オフは会社アカウントのみの設定で、個人アカウントには適用されません</li>
+    <li>ChatGPTは共有アカウントのため、会話履歴が全員に見えます。見られたくないやりとりは一時チャットを使うか、終わったら削除してください</li>
   </ul></div>
 
   <div class="term" data-req="1"><h3>成果物を他人に共有するときに確認すること <b class="b req">必読</b></h3>
-  <p><strong>AIが書いた文章でも、送信するのは人間です。</strong>とくに<strong>数字・人名・法令</strong>は必ず確認してください。</p>
-  <div class="key"><p><b>人が確認・修正した原稿は、通常の成果物と同じ扱いです。</b>納品も告知もAIを使わない場合と変わりません。ただし先方が制作過程の開示を求める場合、契約でAI利用の申告が定められている場合は、それに従ってください。</p></div></div>
+  <p>AIが書いた文章でも、送信するのは人間です。とくに<b>数字・人名・法令</b>は必ず確認してください。</p>
+  <p style="margin-top:12px">人が確認・修正した原稿は、通常の成果物と同じ扱いです。納品も告知も、AIを使わない場合と変わりません。ただし先方が制作過程の開示を求める場合や、契約でAI利用の申告が定められている場合は、それに従ってください。</p></div>
 
   <div class="term"><h3>薬機法・景表法のチェック</h3>
-  <p><strong>一次チェックに使って構いません。</strong>見落としを減らす目的では有効です。</p>
-  <div class="warn"><p><b>AIが「問題ない」と言ったことを根拠にしないでください。</b>ハルシネーションは仕組み上避けられず、<b>法令の解釈はとくに間違えます。</b>AIが指摘した箇所を人が確認する、という向きで使ってください。<b>AIが指摘しなかった＝安全、ではありません。</b></p></div></div>
+  <p>一次チェックに使って構いません。見落としを減らす目的では有効です。</p>
+  <p style="margin-top:12px">ただしハルシネーションは仕組み上避けられず、法令の解釈はとくに間違えます。AIが指摘した箇所を人が確認する、という向きで使ってください。</p>
+  <div class="warn"><p><b>AIが指摘しなかった＝安全、ではありません。</b></p></div></div>
 
   <div class="term"><h3>著作権と社外公開</h3>
-  <p>次のいずれかに当てはまるものは、公開前に上長に確認してください。</p>
+  <p>AIが生成したものは、既存著作物に酷似することがまれにあります。次のいずれかに当てはまるものは、公開前に上長に確認してください。</p>
   <ul>
-    <li><b>実在の人物や著名人に似た人物</b>が写っているもの</li>
-    <li><b>既存のキャラクター・作品に似せた</b>もの</li>
-    <li><b>他社のロゴ・商標に似た要素</b>が入っているもの</li>
+    <li>実在の人物や著名人に似た人物が写っているもの</li>
+    <li>既存のキャラクター・作品に似せたもの</li>
+    <li>他社のロゴ・商標に似た要素が入っているもの</li>
   </ul>
-  <p style="margin-top:12px"><strong>上の3つに1つでも当てはまれば必ず確認、当てはまらなければ確認不要です。</strong>既存著作物に酷似するケースがまれにあります。</p></div>
+  <p style="margin-top:12px">3つとも当てはまらなければ、確認は不要です。</p></div>
 
   <div class="term" data-req="1"><h3>入れてはいけない情報を入れてしまったら <b class="b req">必読</b></h3>
-  <div class="key"><p><b>まず、その会話を削除してください。</b>履歴からすぐ消えます。サーバー上からも各サービスの規定に沿って削除されます（ClaudeとChatGPTは30日以内）。<b>外部学習には使われない設定なので、モデルに残ることはありません。</b></p></div>
-  <p style="margin-top:12px"><strong>次の場合だけ、当日中に上長に報告してください。</strong></p>
+  <p>まず、その会話を削除してください。履歴からすぐ消え、サーバー上からも各サービスの規定に沿って削除されます（ClaudeとChatGPTは30日以内）。Gemini・Claude・ChatGPTは外部学習に使われない設定なので、モデルに残ることはありません。</p>
+  <p style="margin-top:12px">次の場合だけ、当日中に上長に報告してください。</p>
   <ul>
-    <li><b>削除では消えない場所</b>に入れた（プロジェクトやGPTsの参照資料、共有リンク、MCPで別サービスに書き出したあと）</li>
-    <li><b>他の人が見た可能性がある</b>（共有アカウントなど）</li>
+    <li>削除では消えない場所に入れた（プロジェクトやGPTsの参照資料、共有リンク、MCPで別サービスに書き出したあと）</li>
+    <li>他の人が見た可能性がある（共有アカウントなど）</li>
   </ul>
   <p style="margin-top:12px">自分の会話に少量入れて、すぐ削除した場合は報告不要です。</p></div>
 </section>
@@ -262,9 +263,10 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <div><b class="b lv-auto">全自動</b> 人は結果を確認するだけ。定期実行に載せられる</div>
     <div><b class="b lv-half">半自動</b> AIが作り、人が確認・修正して確定する</div>
     <div><b class="b lv-help">支援</b> 人が主体。AIは検討相手</div>
+    <div><b class="b lv-no">任せない</b> 参考意見に留める</div>
   </div>
 
-  <div class="term"><h3>A. 書く・まとめる</h3>
+  <div class="term" data-req="1"><h3>A. 書く・まとめる <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr data-role="全員"><td>メール・チャットの下書き<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>送信は人が判断する</td></tr>
@@ -273,33 +275,33 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr data-role="営業・サポート"><td>オリエン内容の整理・要件の言語化<b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>議事メモから、要件・制約・未決事項に分けて整理させる</td></tr>
     <tr data-role="全員"><td>長文資料の要約<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>数字と固有名詞は要確認</td></tr>
     <tr data-role="営業・サポート"><td>報告書・提案書・プレゼン資料の作成<b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Word / PowerPointで出す場合。<strong>クライアント定例のように毎回同じ形なら、型を登録して使い回す</strong></td></tr>
-    <tr data-role="全員"><td>翻訳・誤字チェック<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォート（AIに考えさせる量。第8部）は「低」で足りる</td></tr>
+    <tr data-role="全員"><td>誤字・表記ゆれのチェック<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォート（AIに考えさせる量。第8部）は「低」で足りる</td></tr>
+    <tr data-role="全員"><td>翻訳<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td><strong>訳語の統一とニュアンスは人が確認する</strong></td></tr>
     <tr data-role="営業・サポート マネジメント"><td>進行表・スケジュールの作成<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>工程と条件を渡してたたき台を出させる。<strong>実際の稼働状況は人が入れる</strong></td></tr>
     <tr data-role="コーポレート マネジメント"><td>採用スカウト・面接スクリプトの作成<b class="rtag ro-co">コーポレート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>求める人物像と条件を渡して案を出させる</td></tr>
-    <tr data-role="全員"><td>社内マニュアルの整備<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
+    <tr data-role="営業・サポート マネジメント"><td>社内マニュアルの整備<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
     <tr data-role="全員"><td>定型フォーマットへの変換<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>毎回同じ形なら開発型でも可</td></tr>
   </table></div>
 
-  <div class="term"><h3>B. 調べる・確認する</h3>
+  <div class="term" data-req="1"><h3>B. 調べる・確認する <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr data-role="全員"><td>社内規程・マニュアルの検索<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>一般知識で補完しないため根拠を追える</td></tr>
     <tr data-role="全員"><td>分厚い資料の横断調査<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>100ページ超でも扱える</td></tr>
     <tr data-role="営業・サポート コーポレート"><td>契約書・仕様書の矛盾チェック<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォートは「高〜超高」。見落としのコストが待ち時間を上回る</td></tr>
-    <tr data-role="分析 ライター 運用"><td>競合・市場の調査<b class="rtag ro-an">分析</b><b class="rtag ro-wr">ライター</b><b class="rtag ro-un">運用</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型（Deep Research）</b></td><td>数分〜十数分かけて自走し、出典付きでまとまる</td></tr>
+    <tr data-role="ライター 運用"><td>競合・市場の調査<b class="rtag ro-wr">ライター</b><b class="rtag ro-un">運用</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型（Deep Research）</b></td><td>数分〜十数分かけて自走し、出典付きでまとまる</td></tr>
     <tr data-role="ライター クリエイター"><td>広告表現のレギュレーションチェック<b class="rtag ro-wr">ライター</b><b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>薬機法・景表法の<strong>一次チェック</strong>に。<strong>AIが指摘しなかった＝安全ではない</strong>（第1部）</td></tr>
-    <tr data-role="ライター 分析"><td>事実確認（ファクトチェック）<b class="rtag ro-wr">ライター</b><b class="rtag ro-an">分析</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>出典付きで出させ、リンクを開いて裏を取る</td></tr>
     <tr data-role="コーポレート"><td>年末調整・社会保険などの書類チェック<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>記入漏れや不備を洗い出させる。<strong>判断と提出は人</strong></td></tr>
     <tr data-role="営業・サポート マネジメント"><td>業界動向の定点観測<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Deep Researchと定期実行を組み合わせる。<strong>出典は開いて確認する</strong></td></tr>
   </table></div>
 
-  <div class="term"><h3>C. 集める・分析する（データ）</h3>
+  <div class="term" data-req="1"><h3>C. 集める・分析する（データ） <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr data-role="全員"><td>複数ファイルの集計・突合<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>フォルダを渡すだけ</td></tr>
     <tr data-role="全員"><td>外部サービスからのデータ取り込み<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>スクリプトとして残るので他の人にも渡せる</td></tr>
     <tr data-role="全員"><td>他社クリエイティブ・記事の分析<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td><strong>動画広告分析PRO</strong>（競合クリエイティブの調査ツール。第7部）から取得。自社データと突き合わせて差分を見る。組み方は第4部の実例。画像の細部は当てにならない点に注意（第8部）</td></tr>
-    <tr data-role="全員"><td>広告・LPの実績分析<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td>数値で絞ってから中身を見る。組み方は第7部の「組み合わせの例」</td></tr>
+    <tr data-role="全員"><td>広告・LPの実績分析<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td>数値で絞ってから中身を見る。組み方は第4部の実例</td></tr>
     <tr data-role="コーポレート"><td>請求書・領収書からの数値の抜き出し<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>PDFから金額・日付・取引先を抜いて一覧に。freeeへの登録まで通せる</td></tr>
     <tr data-role="コーポレート"><td>仕訳の候補出し<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dev">開発型</b></td><td>過去の仕訳から勘定科目の候補を出させる。<strong>確定は人</strong></td></tr>
     <tr data-role="分析 ライター"><td>記事のパワーワード抽出<b class="rtag ro-an">分析</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>勝ち記事から訴求語を抜き出して一覧に</td></tr>
@@ -307,10 +309,9 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr data-role="全員"><td>集計表・管理表の作成<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>スプレッドシートの構成から作らせる</td></tr>
   </table></div>
 
-  <div class="term"><h3>D. 作る（ビジュアル・ツール）</h3>
+  <div class="term" data-req="1"><h3>D. 作る（ビジュアル・ツール） <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th style="width:13%">度合い</th><th style="width:17%">ツール</th><th>補足</th></tr>
-    <tr data-role="クリエイター ライター"><td>バナー・資料デザインの量産<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>配色・トーンは寄せられる。<strong>ロゴは変形するので生成させず、あとからCanva・Adobeで載せる</strong></td></tr>
     <tr data-role="クリエイター"><td>画像の生成<b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>Gemini（Nano Banana 2 / Pro）、ChatGPT Images 2.0。<strong>採用1枚に数十枚出すのが実態</strong></td></tr>
     <tr data-role="クリエイター ライター"><td>図解・インフォグラフィックの作成<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>日本語の文字入りはNano Banana Proが安定。<strong>それでも誤字は出るので必ず目視する。</strong>確実にしたいなら文字なしで生成し、Canva・Adobeで文字を載せる</td></tr>
     <tr data-role="ライター クリエイター"><td>漫画の制作<b class="rtag ro-wr">ライター</b><b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dsn">制作型</b></td><td>台本はチャット型でコマ割りとセリフを出させ、構成は人が決める。<strong>複数コマで同じキャラクターを保つならAI Studioの画像編集</strong></td></tr>
@@ -325,7 +326,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr data-role="全員"><td>業務ツールの自作<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-work">作業代行型</b></td><td>継続的に手を入れるなら開発型。HTML1枚で完結するならCoworkが速い</td></tr>
   </table></div>
 
-  <div class="term"><h3>E. 考える</h3>
+  <div class="term" data-req="1"><h3>E. 考える <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
     <tr data-role="全員"><td>アイデア出し・企画の検討<b class="rtag ro-all">全員</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>往復して精度を上げる性質の作業</td></tr>
@@ -340,7 +341,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr data-role="マネジメント コーポレート"><td>採用・評価・人事判断<b class="rtag ro-mg">マネジメント</b><b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-no">任せない</b></td><td>—</td><td><strong>参考意見に留める</strong></td></tr>
   </table></div>
 
-  <div class="term"><h3>F. 定型作業を自動化する</h3>
+  <div class="term" data-req="1"><h3>F. 定型作業を自動化する <b class="b req">必読</b></h3>
   <table>
     <tr><th>業務</th><th style="width:13%">度合い</th><th style="width:17%">ツール</th><th>補足</th></tr>
     <tr data-role="全員"><td>メールの分類・一括既読<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GASで条件を決めて回す</td></tr>
@@ -399,15 +400,15 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <div class="term"><h3>実例：大量クリエイティブの分析</h3>
   <p>「1,000件のクリエイティブと数値を取り込み、勝ちパターンを資料化して次の案を出す」場合の組み方です。</p>
   <table>
-    <tr><th style="width:16%">工程</th><th>やること</th><th style="width:19%">ツール</th><th style="width:13%">度合い</th></tr>
-    <tr><td>① 取り込み</td><td>URLから画像と数値を収集</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-auto">全自動</b></td></tr>
+    <tr><th style="width:16%">工程</th><th>やること</th><th style="width:27%">使うもの</th><th style="width:13%">度合い</th></tr>
+    <tr><td>① 取り込み</td><td>URLから画像と数値を収集</td><td><b class="b typ-dev">開発型</b>（Squad beyond・動画広告分析PROのMCP）</td><td><b class="b lv-auto">全自動</b></td></tr>
     <tr><td>② 絞り込み</td><td>数値だけで上位・下位を抽出</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-auto">全自動</b></td></tr>
-    <tr><td>③ 言語化</td><td>上位20件・下位20件の画像だけを見せて共通点を出す</td><td><b class="b typ-dev">開発型</b></td><td><b class="b lv-half">半自動</b></td></tr>
+    <tr><td>③ 言語化</td><td>上位20件・下位20件の画像だけを見せて共通点を出す</td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td><b class="b lv-half">半自動</b></td></tr>
     <tr><td>④ 資料化</td><td>勝ちパターンをレポートにまとめる</td><td><b class="b typ-dev">開発型</b> <b class="b typ-work">作業代行型</b></td><td><b class="b lv-half">半自動</b></td></tr>
     <tr><td>⑤ 案出し</td><td>案件・ターゲット・訴求を指定して台本案を複数出す</td><td><b class="b typ-chat">チャット型</b></td><td><b class="b lv-half">半自動</b></td></tr>
-    <tr><td>⑥ ビジュアル化</td><td>案を実際の画像にする</td><td><b class="b typ-dsn">制作型</b></td><td><b class="b lv-half">半自動</b></td></tr>
+    <tr><td>⑥ ビジュアル化</td><td>案を実際の画像にする</td><td><b class="b typ-dsn">制作型</b>（Higgsfield）</td><td><b class="b lv-half">半自動</b></td></tr>
   </table>
-  <p style="margin-top:12px"><strong>②で数値だけを使って絞るのが要点です。</strong>1,000枚すべてを見せると時間もコストもかかりますが、③に渡るのは40枚で済みます。</p>
+  <p style="margin-top:12px"><strong>Chatwork / Slackへの通知まで含めれば、毎月の作業が一度の指示で回ります。</strong>②で数値だけを使って絞るのが要点です。1,000枚すべてを見せると時間もコストもかかりますが、③に渡るのは40枚で済みます。</p>
   <div class="warn"><p><b>⑤で「どのターゲットに、どの訴求で攻めるか」を決めるのは人です。</b>分析結果は過去に勝ったものなので、方針まで任せると過去のなぞりになります。①〜④は毎月同じ手順なので、開発型が適します。</p></div></div>
   <div class="term"><h3>専門家をつくる（カスタムAI）</h3>
   <p><strong>同じ依頼を3回繰り返したら、専用のAIを作ってください。</strong>役割と参照資料を持たせて残しておけます。「自社のトーンで書く広報担当」のようなイメージです。</p>
@@ -621,7 +622,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <div class="part-sub">業務ツールとの連携（MCP・API）</div>
 
   <div class="term"><h3>現在つなげるMCP（コネクタ）</h3>
-  <p>MCPは、AIを社内のサービスに接続する仕組み。<strong>AIが自分でデータを見に行けるようになります。</strong>第3部C章の「外部サービスからのデータ取り込み」「広告・LPの実績分析」はこれが前提です。</p>
+  <p>MCPは、AIを社内のサービスに接続する仕組み。<strong>AIが自分でデータを見に行けるようになります。</strong>第3部C章の「他社クリエイティブ・記事の分析」「広告・LPの実績分析」は、これがあると手作業が消えます。<strong>複数のMCPを組み合わせた例は第4部の実例にあります。</strong></p>
   <table>
     <tr><th>サービス</th><th>種別</th><th>できること</th></tr>
     <tr><td><b>Squad beyond</b></td><td>LP改善</td><td>レポートデータの取得、分析。日次・週次サマリーの自動生成。<strong>Claudeなどで生成した記事をSquad beyond上に反映できる。</strong></td></tr>
@@ -642,18 +643,6 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <tr><td><b>Google AI Studio</b></td><td>GeminiのAPIキー発行と試作。無料枠での入力内容の扱いは第6部を参照</td></tr>
     <tr><td><b>Google Colab</b></td><td>Pythonをブラウザで実行。環境構築なしで分析スクリプトを動かせます。Geminiが組み込まれており、コードの生成・修正もその場でできます</td></tr>
   </table></div>
-
-  <div class="term"><h3>組み合わせの例</h3>
-  <ol>
-    <li><b>Squad beyond</b> から自社LPの数値を取得</li>
-    <li><b>動画広告分析PRO</b> から他社の記事の傾向を取得</li>
-    <li><b>Claude</b>で分析し、勝ちパターンをレポート化</li>
-    <li>勝ちパターンをもとに次の記事案を作る</li>
-    <li><b>Squad beyond</b> に反映</li>
-    <li><b>Chatwork / Slack</b> に結果を通知</li>
-  </ol>
-  <div class="key"><p><b>MCPでつないでいれば、1〜5はデータを手で移さずに進みます。</b>件数が多くて一度に扱えない場合は、<b>Colab</b> で先に集計してから渡します。</p></div>
-  <p style="margin-top:12px">同じ流れで、クリエイティブの分析（第4部の実例）も組めます。</p></div>
 
   <div class="term"><h3>接続時の注意</h3>
   <ul>
