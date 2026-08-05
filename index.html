@@ -39,6 +39,11 @@ header.hero p.upd { margin-top: 10px; font-size: 12px; }
 .tab:hover { border-color: var(--accent); color: var(--accent); }
 .tab.on { background: var(--ink); border-color: var(--ink); color: #fff; }
 .count { font-size: 12px; color: var(--muted); margin-top: 10px; }
+.tabs.roles { margin-top: 8px; align-items: center; }
+.rlabel { font-size: 11.5px; color: var(--muted); margin-right: 2px; }
+.rtab { border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 20px; padding: 3px 11px; font-size: 12px; cursor: pointer; font-family: inherit; transition: all .12s; }
+.rtab:hover { border-color: var(--accent); color: var(--accent); }
+.rtab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 .part { margin-bottom: 44px; }
 .part > h2 { font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin: 0 0 4px; font-weight: 700; }
@@ -47,7 +52,7 @@ header.hero p.upd { margin-top: 10px; font-size: 12px; }
 .term { border-left: 3px solid var(--line); padding: 2px 0 2px 18px; margin-bottom: 26px; }
 .term:hover { border-left-color: var(--accent); }
 .term h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; letter-spacing: -0.005em; }
-.term h3 .en { color: var(--muted); font-size: 12.5px; font-weight: 400; margin-left: 7px; }
+.term h3 .en, .term dt .en { color: var(--muted); font-size: 12.5px; font-weight: 400; margin-left: 7px; }
 .term p { margin: 0; font-size: 14.5px; }
 .term p + p { margin-top: 10px; }
 .term ul, .term ol { margin: 8px 0 0; padding-left: 20px; }
@@ -76,6 +81,16 @@ th { background: var(--paper); font-size: 12px; color: var(--muted); font-weight
 .lv-help  { background: #e7effa; color: #2f5590; }
 .lv-no    { background: #f6e7e7; color: #8f3230; }
 .req      { background: var(--accent); color: #fff; }
+.ro-un { background: #e8eef7; color: #35558a; }
+.ro-sa { background: #eaf3ec; color: #2f6b41; }
+.ro-an { background: #f0ecf7; color: #5b4487; }
+.ro-wr { background: #fdf1e8; color: #a35a24; }
+.ro-cr { background: #fdeef1; color: #9c3a5c; }
+.ro-co { background: #e9f2f2; color: #2a6360; }
+.ro-mg { background: #f7f0e0; color: #7a6220; }
+.ro-all{ background: #eeece8; color: #5c574e; }
+.rtag { font-size: 10.5px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 5px; white-space: nowrap; display: inline-block; }
+
 .term h3 .b { margin-left: 8px; }
 
 .warn { background: #fdf4f3; border-left: 3px solid #c96a5e; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
@@ -122,6 +137,17 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <button class="tab" data-f="p6">ツール別</button>
     <button class="tab" data-f="p7">MCP・API</button>
     <button class="tab" data-f="p8">用語集</button>
+  </div>
+  <div class="tabs roles">
+    <span class="rlabel">職種</span>
+    <button class="rtab on" data-r="">指定なし</button>
+    <button class="rtab" data-r="運用">運用</button>
+    <button class="rtab" data-r="営業・サポート">営業・サポート</button>
+    <button class="rtab" data-r="分析">分析</button>
+    <button class="rtab" data-r="ライター">ライター</button>
+    <button class="rtab" data-r="クリエイター">クリエイター</button>
+    <button class="rtab" data-r="コーポレート">コーポレート</button>
+    <button class="rtab" data-r="マネジメント">マネジメント</button>
   </div>
   <div class="count" id="count"></div>
 </div>
@@ -241,71 +267,95 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <div class="term"><h3>A. 書く・まとめる</h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
-    <tr><td>メール・チャットの下書き</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>送信は人が判断する</td></tr>
-    <tr><td>音声・動画の文字起こし</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>Geminiにファイルを渡す。<strong>固有名詞と数字は要確認</strong></td></tr>
-    <tr><td>議事録の作成（文字起こしから）</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>形式が決まっているならCoworkに型を登録する</td></tr>
-    <tr><td>オリエン内容の整理・要件の言語化</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>議事メモから、要件・制約・未決事項に分けて整理させる</td></tr>
-    <tr><td>長文資料の要約</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>数字と固有名詞は要確認</td></tr>
-    <tr><td>報告書・提案書・プレゼン資料の作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Word / PowerPointで出す場合。<strong>クライアント定例のように毎回同じ形なら、型を登録して使い回す</strong></td></tr>
-    <tr><td>翻訳・誤字チェック</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォート（AIに考えさせる量。第8部）は「低」で足りる</td></tr>
-    <tr><td>進行表・スケジュールの作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>工程と条件を渡してたたき台を出させる。<strong>実際の稼働状況は人が入れる</strong></td></tr>
-    <tr><td>採用スカウト・面接スクリプトの作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>求める人物像と条件を渡して案を出させる</td></tr>
-    <tr><td>社内マニュアルの整備</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
-    <tr><td>定型フォーマットへの変換</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>毎回同じ形なら開発型でも可</td></tr>
+    <tr data-role="全員"><td>メール・チャットの下書き<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>送信は人が判断する</td></tr>
+    <tr data-role="全員"><td>音声・動画の文字起こし<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>Geminiにファイルを渡す。<strong>固有名詞と数字は要確認</strong></td></tr>
+    <tr data-role="全員"><td>議事録の作成（文字起こしから）<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>形式が決まっているならCoworkに型を登録する</td></tr>
+    <tr data-role="営業・サポート"><td>オリエン内容の整理・要件の言語化<b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>議事メモから、要件・制約・未決事項に分けて整理させる</td></tr>
+    <tr data-role="全員"><td>長文資料の要約<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>数字と固有名詞は要確認</td></tr>
+    <tr data-role="営業・サポート"><td>報告書・提案書・プレゼン資料の作成<b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Word / PowerPointで出す場合。<strong>クライアント定例のように毎回同じ形なら、型を登録して使い回す</strong></td></tr>
+    <tr data-role="全員"><td>翻訳・誤字チェック<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>答えがほぼ一意。エフォート（AIに考えさせる量。第8部）は「低」で足りる</td></tr>
+    <tr data-role="営業・サポート マネジメント"><td>進行表・スケジュールの作成<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-work">作業代行型</b></td><td>工程と条件を渡してたたき台を出させる。<strong>実際の稼働状況は人が入れる</strong></td></tr>
+    <tr data-role="コーポレート マネジメント"><td>採用スカウト・面接スクリプトの作成<b class="rtag ro-co">コーポレート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>求める人物像と条件を渡して案を出させる</td></tr>
+    <tr data-role="全員"><td>社内マニュアルの整備<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
+    <tr data-role="全員"><td>定型フォーマットへの変換<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>毎回同じ形なら開発型でも可</td></tr>
   </table></div>
 
   <div class="term"><h3>B. 調べる・確認する</h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
-    <tr><td>社内規程・マニュアルの検索</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>一般知識で補完しないため根拠を追える</td></tr>
-    <tr><td>分厚い資料の横断調査</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>100ページ超でも扱える</td></tr>
-    <tr><td>契約書・仕様書の矛盾チェック</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォートは「高〜超高」。見落としのコストが待ち時間を上回る</td></tr>
-    <tr><td>競合・市場の調査</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型（Deep Research）</b></td><td>数分〜十数分かけて自走し、出典付きでまとまる</td></tr>
-    <tr><td>広告表現のレギュレーションチェック</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>薬機法・景表法の<strong>一次チェック</strong>に。<strong>AIが指摘しなかった＝安全ではない</strong>（第1部）</td></tr>
-    <tr><td>事実確認（ファクトチェック）</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>出典付きで出させ、リンクを開いて裏を取る</td></tr>
-    <tr><td>業界動向の定点観測</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Deep Researchと定期実行を組み合わせる。<strong>出典は開いて確認する</strong></td></tr>
+    <tr data-role="全員"><td>社内規程・マニュアルの検索<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>一般知識で補完しないため根拠を追える</td></tr>
+    <tr data-role="全員"><td>分厚い資料の横断調査<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-doc">資料限定型</b></td><td>100ページ超でも扱える</td></tr>
+    <tr data-role="営業・サポート コーポレート"><td>契約書・仕様書の矛盾チェック<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォートは「高〜超高」。見落としのコストが待ち時間を上回る</td></tr>
+    <tr data-role="分析 ライター"><td>競合・市場の調査<b class="rtag ro-an">分析</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型（Deep Research）</b></td><td>数分〜十数分かけて自走し、出典付きでまとまる</td></tr>
+    <tr data-role="ライター クリエイター"><td>広告表現のレギュレーションチェック<b class="rtag ro-wr">ライター</b><b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>薬機法・景表法の<strong>一次チェック</strong>に。<strong>AIが指摘しなかった＝安全ではない</strong>（第1部）</td></tr>
+    <tr data-role="ライター 分析"><td>事実確認（ファクトチェック）<b class="rtag ro-wr">ライター</b><b class="rtag ro-an">分析</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>出典付きで出させ、リンクを開いて裏を取る</td></tr>
+    <tr data-role="コーポレート"><td>年末調整・社会保険などの書類チェック<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>記入漏れや不備を洗い出させる。<strong>判断と提出は人</strong></td></tr>
+    <tr data-role="営業・サポート マネジメント"><td>業界動向の定点観測<b class="rtag ro-sa">営業・サポート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Deep Researchと定期実行を組み合わせる。<strong>出典は開いて確認する</strong></td></tr>
   </table></div>
 
   <div class="term"><h3>C. 集める・分析する（データ）</h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
-    <tr><td>複数ファイルの集計・突合</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>フォルダを渡すだけ</td></tr>
-    <tr><td>外部サービスからのデータ取り込み</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>スクリプトとして残るので他の人にも渡せる</td></tr>
-    <tr><td>他社クリエイティブ・記事の分析</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td><strong>動画広告分析PRO</strong>（競合クリエイティブの調査ツール。第7部）から取得。自社データと突き合わせて差分を見る。組み方は第4部の実例。画像の細部は当てにならない点に注意（第8部）</td></tr>
-    <tr><td>広告・LPの実績分析</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td>数値で絞ってから中身を見る。組み方は第7部の「組み合わせの例」</td></tr>
-    <tr><td>数値データの異常検知</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td></td></tr>
-    <tr><td>集計表・管理表の作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>スプレッドシートの構成から作らせる</td></tr>
-    <tr><td>ファイルの命名・仕分け</td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
+    <tr data-role="全員"><td>複数ファイルの集計・突合<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>フォルダを渡すだけ</td></tr>
+    <tr data-role="全員"><td>外部サービスからのデータ取り込み<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>スクリプトとして残るので他の人にも渡せる</td></tr>
+    <tr data-role="全員"><td>他社クリエイティブ・記事の分析<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td><strong>動画広告分析PRO</strong>（競合クリエイティブの調査ツール。第7部）から取得。自社データと突き合わせて差分を見る。組み方は第4部の実例。画像の細部は当てにならない点に注意（第8部）</td></tr>
+    <tr data-role="全員"><td>広告・LPの実績分析<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-chat">チャット型</b></td><td>数値で絞ってから中身を見る。組み方は第7部の「組み合わせの例」</td></tr>
+    <tr data-role="コーポレート"><td>請求書・領収書からの数値の抜き出し<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>PDFから金額・日付・取引先を抜いて一覧に。freeeへの登録まで通せる</td></tr>
+    <tr data-role="コーポレート"><td>仕訳の候補出し<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dev">開発型</b></td><td>過去の仕訳から勘定科目の候補を出させる。<strong>確定は人</strong></td></tr>
+    <tr data-role="分析 ライター"><td>記事のパワーワード抽出<b class="rtag ro-an">分析</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>勝ち記事から訴求語を抜き出して一覧に</td></tr>
+    <tr data-role="運用 営業・サポート"><td>スプレッドシートの定期集計・転記<b class="rtag ro-un">運用</b><b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GAS</td></tr>
+    <tr data-role="全員"><td>集計表・管理表の作成<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>スプレッドシートの構成から作らせる</td></tr>
   </table></div>
 
   <div class="term"><h3>D. 作る（ビジュアル・ツール）</h3>
   <table>
     <tr><th>業務</th><th style="width:13%">度合い</th><th style="width:17%">ツール</th><th>補足</th></tr>
-    <tr><td>バナー・資料デザインの量産</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>配色・トーンは寄せられる。<strong>ロゴは変形するので生成させず、あとからCanva・Adobeで載せる</strong></td></tr>
-    <tr><td>画像の生成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>Gemini（Nano Banana 2 / Pro）、ChatGPT Images 2.0。<strong>採用1枚に数十枚出すのが実態</strong></td></tr>
-    <tr><td>図解・インフォグラフィックの作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>日本語の文字入りはNano Banana Proが安定。<strong>それでも誤字は出るので必ず目視する。</strong>確実にしたいなら文字なしで生成し、Canva・Adobeで文字を載せる</td></tr>
-    <tr><td>漫画の制作</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dsn">制作型</b></td><td>台本はチャット型でコマ割りとセリフを出させ、構成は人が決める。<strong>複数コマで同じキャラクターを保つならAI Studioの画像編集</strong></td></tr>
-    <tr><td>動画の台本作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>尺・構成・訴求を指定して複数案を出させる</td></tr>
-    <tr><td>キャッチコピー・広告文の案出し</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>ターゲットと訴求を指定して数十案出させる。選ぶのは人</td></tr>
-    <tr><td>勝ちパターンからの台本・コピー案出し</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td><strong>分析結果＋案件・ターゲット・訴求を渡して複数案を出させる。</strong>方針の決め方はE章</td></tr>
-    <tr><td>動画素材の生成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>広告向けはHiggsfield。一般的な素材はGoogle Flow（Veo）、AI StudioのVeo系</td></tr>
-    <tr><td>動画編集</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>カット・結合・字幕入れなど定型処理はスクリプト化が確実</td></tr>
-    <tr><td>社内向け説明動画の作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>Google Vids。構成・ナレーション・AIアバターまで作れる</td></tr>
-    <tr><td>ナレーション・BGMの生成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>ナレーションはAI Studio、楽曲はGoogle Flow Music</td></tr>
-    <tr><td>LPの作成</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b> <b class="b typ-dev">開発型</b></td><td>構成と原稿はチャット型、画面はClaude DesignやCodexなど</td></tr>
-    <tr><td>SQL・GASなどのスクリプト作成・修正</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>やりたいことを日本語で伝える。<strong>エラー文はそのまま貼って直させる</strong></td></tr>
-    <tr><td>業務ツールの自作</td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-work">作業代行型</b></td><td>継続的に手を入れるなら開発型。HTML1枚で完結するならCoworkが速い</td></tr>
+    <tr data-role="クリエイター ライター"><td>バナー・資料デザインの量産<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>配色・トーンは寄せられる。<strong>ロゴは変形するので生成させず、あとからCanva・Adobeで載せる</strong></td></tr>
+    <tr data-role="クリエイター"><td>画像の生成<b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>Gemini（Nano Banana 2 / Pro）、ChatGPT Images 2.0。<strong>採用1枚に数十枚出すのが実態</strong></td></tr>
+    <tr data-role="クリエイター ライター"><td>図解・インフォグラフィックの作成<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>日本語の文字入りはNano Banana Proが安定。<strong>それでも誤字は出るので必ず目視する。</strong>確実にしたいなら文字なしで生成し、Canva・Adobeで文字を載せる</td></tr>
+    <tr data-role="ライター クリエイター"><td>漫画の制作<b class="rtag ro-wr">ライター</b><b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b> <b class="b typ-dsn">制作型</b></td><td>台本はチャット型でコマ割りとセリフを出させ、構成は人が決める。<strong>複数コマで同じキャラクターを保つならAI Studioの画像編集</strong></td></tr>
+    <tr data-role="クリエイター ライター"><td>動画の台本作成<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>尺・構成・訴求を指定して複数案を出させる</td></tr>
+    <tr data-role="ライター クリエイター"><td>キャッチコピー・広告文の案出し<b class="rtag ro-wr">ライター</b><b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td>ターゲットと訴求を指定して数十案出させる。選ぶのは人</td></tr>
+    <tr data-role="ライター 分析"><td>勝ちパターンからの台本・コピー案出し<b class="rtag ro-wr">ライター</b><b class="rtag ro-an">分析</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-chat">チャット型</b></td><td><strong>分析結果＋案件・ターゲット・訴求を渡して複数案を出させる。</strong>方針の決め方はE章</td></tr>
+    <tr data-role="クリエイター"><td>動画素材の生成<b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>広告向けはHiggsfield。一般的な素材はGoogle Flow（Veo）、AI StudioのVeo系</td></tr>
+    <tr data-role="クリエイター"><td>動画編集<b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>カット・結合・字幕入れなど定型処理はスクリプト化が確実</td></tr>
+    <tr data-role="クリエイター"><td>ナレーション・BGMの生成<b class="rtag ro-cr">クリエイター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b></td><td>ナレーションはAI Studio、楽曲はGoogle Flow Music</td></tr>
+    <tr data-role="ライター"><td>LPの作成<b class="rtag ro-wr">ライター</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dsn">制作型</b> <b class="b typ-dev">開発型</b></td><td>構成と原稿はチャット型、画面はClaude DesignやCodexなど</td></tr>
+    <tr data-role="全員"><td>SQL・GASなどのスクリプト作成・修正<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td>やりたいことを日本語で伝える。<strong>エラー文はそのまま貼って直させる</strong></td></tr>
+    <tr data-role="全員"><td>業務ツールの自作<b class="rtag ro-all">全員</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b> <b class="b typ-work">作業代行型</b></td><td>継続的に手を入れるなら開発型。HTML1枚で完結するならCoworkが速い</td></tr>
   </table></div>
 
   <div class="term"><h3>E. 考える</h3>
   <table>
     <tr><th>業務</th><th>度合い</th><th>ツール</th><th>補足</th></tr>
-    <tr><td>アイデア出し・企画の検討</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>往復して精度を上げる性質の作業</td></tr>
-    <tr><td>ターゲット・ペルソナの設計</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>仮説を出させて人が絞る</td></tr>
-    <tr><td>施策の方針決め（どのターゲットに、どの訴求で攻めるか）</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td><strong>方針の決定は人。</strong>決まったあとの案出しはDの「案出し」で半自動に回せる</td></tr>
-    <tr><td>タスクの割り振り</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>人の状況と力量が絡む。案を出させて人が決める</td></tr>
-    <tr><td>意思決定の材料づくり</td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォート「最大」。判断そのものは人が行う</td></tr>
-    <tr><td>採用・評価・人事判断</td><td><b class="b lv-no">任せない</b></td><td>—</td><td><strong>参考意見に留める</strong></td></tr>
+    <tr data-role="全員"><td>アイデア出し・企画の検討<b class="rtag ro-all">全員</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>往復して精度を上げる性質の作業</td></tr>
+    <tr data-role="クリエイター ライター"><td>ターゲット・ペルソナの設計<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>仮説を出させて人が絞る</td></tr>
+    <tr data-role="クリエイター ライター 分析"><td>勝ち記事・クリエイティブの仮説立て<b class="rtag ro-cr">クリエイター</b><b class="rtag ro-wr">ライター</b><b class="rtag ro-an">分析</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>分析結果を渡して「なぜ勝ったか」の仮説を複数出させる。<strong>採用するのは人</strong></td></tr>
+    <tr data-role="運用"><td>伸び悩み案件の打ち手出し<b class="rtag ro-un">運用</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>数値と現状を渡して改善案を並べさせる</td></tr>
+    <tr data-role="マネジメント 運用"><td>施策の方針決め（どのターゲットに、どの訴求で攻めるか）<b class="rtag ro-mg">マネジメント</b><b class="rtag ro-un">運用</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td><strong>方針の決定は人。</strong>決まったあとの案出しはDの「案出し」で半自動に回せる</td></tr>
+    <tr data-role="マネジメント 運用"><td>媒体・予算配分の検討<b class="rtag ro-mg">マネジメント</b><b class="rtag ro-un">運用</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>実績を渡して配分案を出させる。<strong>投下判断は人</strong></td></tr>
+    <tr data-role="マネジメント"><td>タスクの割り振り<b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>人の状況と力量が絡む。案を出させて人が決める</td></tr>
+    <tr data-role="マネジメント"><td>業務フローの見直し<b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>手順を書き出して、どこを自動化できるか整理させる</td></tr>
+    <tr data-role="マネジメント"><td>意思決定の材料づくり<b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-help">支援</b></td><td><b class="b typ-chat">チャット型</b></td><td>エフォート「最大」。判断そのものは人が行う</td></tr>
+    <tr data-role="マネジメント コーポレート"><td>採用・評価・人事判断<b class="rtag ro-mg">マネジメント</b><b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-no">任せない</b></td><td>—</td><td><strong>参考意見に留める</strong></td></tr>
+  </table></div>
+
+  <div class="term"><h3>F. 定型作業を自動化する</h3>
+  <table>
+    <tr><th>業務</th><th style="width:13%">度合い</th><th style="width:17%">ツール</th><th>補足</th></tr>
+    <tr data-role="全員"><td>メールの分類・一括既読<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GASで条件を決めて回す</td></tr>
+    <tr data-role="コーポレート マネジメント"><td>採用応募の振り分け・通知<b class="rtag ro-co">コーポレート</b><b class="rtag ro-mg">マネジメント</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>条件ごとに振り分けて担当者へ通知。<strong>選考の判断はさせない</strong>（E章）</td></tr>
+    <tr data-role="全員"><td>Googleドライブのフォルダ整理<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GASで移動・リネーム</td></tr>
+    <tr data-role="全員"><td>PC内のフォルダ整理<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td>Coworkにフォルダを渡すだけ</td></tr>
+    <tr data-role="全員"><td>ファイルの命名・仕分け<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-work">作業代行型</b></td><td></td></tr>
+    <tr data-role="運用"><td>広告の入稿（ルールに基づく入稿・テスト入稿）<b class="rtag ro-un">運用</b></td><td><b class="b lv-half">半自動</b></td><td><b class="b typ-dev">開発型</b></td><td><strong>媒体のAPIがある前提。</strong>ルールを渡して定型部分を作らせ、確認して出す</td></tr>
+    <tr data-role="コーポレート"><td>請求書・領収書の格納<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>取引先名と日付でリネームして所定フォルダへ</td></tr>
+    <tr data-role="運用"><td>数値データの異常検知<b class="rtag ro-un">運用</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td></td></tr>
+    <tr data-role="コーポレート"><td>契約書の期限管理・更新リマインド<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>期限が近いものを自動で通知</td></tr>
+    <tr data-role="コーポレート"><td>勤怠の打刻漏れ・長時間労働の検知<b class="rtag ro-co">コーポレート</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>条件を決めて毎日チェック</td></tr>
+    <tr data-role="ライター 営業・サポート"><td>チャットルーム作成・概要欄のテンプレ適用<b class="rtag ro-wr">ライター</b><b class="rtag ro-sa">営業・サポート</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>Chatwork APIで作成できる。新規案件のたびに発生する</td></tr>
+    <tr data-role="全員"><td>定時のリマインド送信<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GASの時間トリガー＋Chatwork / Slack</td></tr>
+    <tr data-role="全員"><td>カレンダー予定の朝まとめ通知<b class="rtag ro-all">全員</b></td><td><b class="b lv-auto">全自動</b></td><td><b class="b typ-dev">開発型</b></td><td>GAS</td></tr>
   </table></div>
 
   <div class="term"><h3>自動化に向かない業務</h3>
@@ -716,6 +766,8 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <dt>アーティファクト</dt><dd>AIが作った成果物を、会話とは別枠で表示・保存する仕組み（→第6部 Claude）。</dd>
     <dt>スキル / プラグイン</dt><dd>よく使う手順をパッケージ化して覚えさせる仕組み。「議事録はこの形式で」といった型を毎回説明せずに再利用できます。</dd>
     <dt>カスタムAI（Gem / GPTs / プロジェクト）</dt><dd>役割と参照資料を持たせた専用のAIを作る機能。呼び方はツールごとに違いますが中身は同じ考え方です（→第4部「専門家をつくる」）。</dd>
+    <dt>GAS<span class="en">Google Apps Script</span></dt><dd>Googleのサービス上で動く小さなプログラム。スプレッドシート、Gmail、ドライブ、カレンダーを操作でき、<b>時刻を決めて自動実行</b>できます。追加の契約は要りません。<b>やりたいことを日本語で伝えればAIが書くので、貼り付けて動かすだけです。</b></dd>
+    <dt>SQL</dt><dd>データベースから必要なデータだけを取り出すための言語。「この条件のデータを、この並びで」と指示します。<b>これもAIに書かせられます。</b></dd>
   </dl></div>
 
   <div class="term"><h3>安全と制御</h3>
@@ -742,14 +794,24 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   var countEl = document.getElementById('count');
   var emptyEl = document.getElementById('empty');
   var filter = 'all';
+  var role = '';
 
   terms.forEach(function(t){ t._text = (t.textContent || '').toLowerCase(); });
+
+  var rows  = Array.prototype.slice.call(document.querySelectorAll('tr[data-role]'));
+  var rtabs = Array.prototype.slice.call(document.querySelectorAll('.rtab'));
 
   function apply(){
     var kw = q.value.trim().toLowerCase();
     var shown = 0;
+    rows.forEach(function(r){
+      if (!role) { r.classList.remove('hidden'); return; }
+      var v = r.dataset.role.split(' ');
+      r.classList.toggle('hidden', v.indexOf(role) === -1 && v.indexOf('全員') === -1);
+    });
     terms.forEach(function(t){
-      var inPart = (filter === 'all') || (filter === 'req' ? t.dataset.req === '1' : t.closest('.part').dataset.part === filter);
+      var inPart = (filter === 'all') ? true : (filter === 'req' ? t.dataset.req === '1' : t.closest('.part').dataset.part === filter);
+      if (role && t.querySelectorAll('tr[data-role]').length > 0 && t.querySelectorAll('tr[data-role]:not(.hidden)').length === 0) inPart = false;
       var match  = !kw || t._text.indexOf(kw) !== -1;
       var ok = inPart && match;
       t.classList.toggle('hidden', !ok);
@@ -759,8 +821,8 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
       p.classList.toggle('hidden', p.querySelectorAll('.term:not(.hidden)').length === 0);
     });
     emptyEl.style.display = shown ? 'none' : 'block';
-    countEl.textContent = (kw || filter !== 'all') ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
-    try { localStorage.setItem('aiGuideFilter7', filter); } catch(e){}
+    countEl.textContent = (kw || filter !== 'all' || role) ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
+    try { localStorage.setItem('aiGuideFilter8', filter); localStorage.setItem('aiGuideRole', role); } catch(e){}
   }
 
   tabs.forEach(function(b){
@@ -772,13 +834,26 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+  rtabs.forEach(function(b){
+    b.addEventListener('click', function(){
+      rtabs.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      role = b.dataset.r;
+      apply();
+    });
+  });
   q.addEventListener('input', apply);
 
   try {
-    var saved = localStorage.getItem('aiGuideFilter7');
+    var saved = localStorage.getItem('aiGuideFilter8');
     if (saved) {
       var m = tabs.filter(function(x){ return x.dataset.f === saved; })[0];
       if (m) { tabs.forEach(function(x){ x.classList.remove('on'); }); m.classList.add('on'); filter = saved; }
+    }
+    var sr = localStorage.getItem('aiGuideRole');
+    if (sr) {
+      var rm = rtabs.filter(function(x){ return x.dataset.r === sr; })[0];
+      if (rm) { rtabs.forEach(function(x){ x.classList.remove('on'); }); rm.classList.add('on'); role = sr; }
     }
   } catch(e){}
 
