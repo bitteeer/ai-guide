@@ -107,9 +107,11 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
 .empty { display: none; color: var(--muted); font-size: 14px; padding: 30px 0; text-align: center; }
 .hidden { display: none !important; }
 mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; }
-#toTop { position: fixed; right: 20px; bottom: 20px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 16px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.10); opacity: 0; pointer-events: none; transition: opacity .18s; z-index: 40; }
-#toTop.show { opacity: 1; pointer-events: auto; }
-#toTop:hover { border-color: var(--accent); color: var(--accent); }
+    pre { background: #f4f2ee; border: 1px solid #e2ded6; border-radius: 5px; padding: 11px 13px; margin: 11px 0 0; overflow-x: auto; }
+    pre code { font-family: "SFMono-Regular", Consolas, "Courier New", monospace; font-size: 12.5px; color: #33302a; white-space: pre; }
+#toTop { position: fixed; right: 20px; bottom: 22px; padding: 10px 16px; border-radius: 22px; border: none; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; line-height: 1; cursor: pointer; box-shadow: 0 4px 14px rgba(184,86,47,.38); opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .18s, transform .18s, background .12s; z-index: 40; }
+#toTop.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#toTop:hover { background: #9c4523; }
 
 @media (max-width: 620px) {
   .wrap { padding: 26px 16px 60px; }
@@ -427,6 +429,11 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   <p style="margin-top:12px"><strong>エージェントとの違い。</strong>専門家は前提を持った相談相手、エージェント（作業代行型・開発型）は手順を実行する担当者です。</p>
   <div class="warn"><p><b>中に入れた資料は、その専門家を使う人全員が見られます。</b>共有範囲を確認してから入れてください。</p></div></div>
 
+  <div class="term"><h3>WEBサイト化して共有する</h3>
+  <p><strong>GitHub PagesかNetlifyに置けば、URLで共有できます。</strong>どちらも無料枠があり、HTMLファイルを上げるだけです。Claudeのアーティファクト、Coworkが出したファイル、Claude CodeやCodexで作ったツールも、すべてHTMLファイルとして書き出せます。</p>
+  <p style="margin-top:12px"><strong>必ず検索避けを設定してください。</strong>HTMLの<code>&lt;head&gt;</code>内に次の1行を入れると、GoogleやBingの検索結果に出なくなります。</p>
+  <pre><code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code></pre>
+  <div class="warn"><p>ただし<b>検索避けをしても、URLを知っている人は誰でも見られます。</b>社外に出せない内容は載せないでください。</p></div></div>
 </section>
 
 <!-- 第5部 -->
@@ -497,8 +504,8 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
     <li><b>向かない</b>：手元のファイルを直接書き換えること、繰り返し実行する作業</li>
   </ul>
   <p class="tlabel">アーティファクト</p>
-  <p>資料・グラフ・簡易ツールを、会話とは別枠で作ってその場で開けます。HTMLファイルとして書き出せるので、社内に配るときはそのままファイルを共有できます。この資料もアーティファクトとして作りました。呼び方はツールごとに違いますが、同様の機能は他のチャット型にもあります。</p>
-  <div class="warn"><p><b>公開URLにする場合は注意してください。</b>無料で使える公開の仕組みは、<b>URLを知っている人なら誰でも見られます。</b>社外に出せない内容は、ファイルで配るか社内ツールに置いてください。</p></div></div>
+  <p>資料・グラフ・簡易ツールを、会話とは別枠で作ってその場で開けます。この資料もアーティファクトとして作りました。呼び方はツールごとに違いますが、同様の機能は他のチャット型にもあります。</p>
+  <p style="margin-top:12px">配り方は第4部の「WEBサイト化して共有する」にあります。</p></div>
 
   <div class="term" data-req="1"><h3>Claude Code <b class="b typ-dev">開発型</b> <b class="b req">必読</b></h3>
   <p>コードを読み書きするAIエージェント。やりとりはチャット形式で、日本語で指示できます。ターミナルが原点ですが、デスクトップアプリ・Web・VS Codeなどのエディタ拡張でも同じことができます。</p>
@@ -778,7 +785,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 
 </div>
 
-<button id="toTop" title="先頭に戻る" aria-label="先頭に戻る">&#8593;</button>
+<button id="toTop" title="先頭に戻る" aria-label="先頭に戻る">&#8593; 先頭へ</button>
 
 <script>
 (function(){
