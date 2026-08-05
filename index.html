@@ -75,6 +75,7 @@ th { background: var(--paper); font-size: 12px; color: var(--muted); font-weight
 .lv-half  { background: #fcf1dd; color: #8a6114; }
 .lv-help  { background: #e7effa; color: #2f5590; }
 .lv-no    { background: #f6e7e7; color: #8f3230; }
+.req      { background: var(--accent); color: #fff; }
 .term h3 .b { margin-left: 8px; }
 
 .warn { background: #fdf4f3; border-left: 3px solid #c96a5e; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
@@ -112,8 +113,9 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <input id="q" type="search" placeholder="業務名・ツール名・用語で検索（例：議事録、競合調査、Nano Banana、トークン）" autocomplete="off">
   <div class="tabs">
     <button class="tab on" data-f="all">すべて</button>
+    <button class="tab" data-f="req">必読のみ</button>
     <button class="tab" data-f="p1">運用ルール</button>
-    <button class="tab" data-f="p2">5分類</button>
+    <button class="tab" data-f="p2">ツール分類</button>
     <button class="tab" data-f="p3">業務カタログ</button>
     <button class="tab" data-f="p4">導入の進め方</button>
     <button class="tab" data-f="p5">質を上げる</button>
@@ -144,36 +146,29 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   </table>
   <p style="margin-top:12px;font-size:13.5px;color:var(--muted)">※チャットまたは口頭で相談してください。</p></div>
 
-  <div class="term"><h3>入力してはいけない情報</h3>
+  <div class="term" data-req="1"><h3>入力してはいけない情報 <b class="b req">必読</b></h3>
   <div class="warn"><p>
-  ・<b>顧客・取引先の個人情報</b>（氏名、連絡先、住所など）<br>
-  ・<b>社員の機微情報</b>（健康情報、経歴、給与、<b>マイナンバー</b>）
+  ・<b>マイナンバー</b><br>
+  ・<b>健康診断結果や病歴などの要配慮個人情報</b>
   </p></div>
-  <p style="margin-top:12px"><b>法令で定められているため、社内の判断では変えられません。</b></p>
-  <div class="key"><p><b>社内メンバーの氏名は対象外です。</b>議事録の発言者名などはそのままで構いません。<b>先方の担当者名が入る場合は、その部分だけ伏せてください。</b></p></div></div>
+  <p style="margin-top:12px"><b>法令で扱いが定められているため、社内の判断では変えられません。</b></p></div>
 
-  <div class="term"><h3>それ以外は確認なしで使えます</h3>
-  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは<b>外部学習に使われない設定</b>にしてあります。案件資料、原稿、訴求案、構成案、社内の数値、議事録などは<b>都度確認せずに使ってください。</b></p></div>
+  <div class="term" data-req="1"><h3>それ以外は確認なしで使えます <b class="b req">必読</b></h3>
+  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは<b>学習に使われない設定</b>です。入力した内容は<b>応答を作るためだけに使われます。</b>案件資料、原稿、議事録、社内の数値など、都度確認せずに使ってください。</p></div>
+  <div class="warn"><p><b>ただし、個人のパスワードや社外秘の情報を扱うときは、共有範囲に気をつけてください。</b>プロジェクトの参照資料に置くと、そのプロジェクトを使える人全員が見られます。</p></div>
   <p style="margin-top:12px"><strong>例外は2つ。</strong></p>
   <ul>
     <li><b>先方との取り決めがある案件。</b>AIを使えない場合と、使うツールが指定されている場合があります。<b>クライアントからツールを指定された場合は、個人アカウントで使わないでください。</b>学習の扱いが変わり、先方の前提を満たせないことがあります</li>
     <li><b>Google AI Studioの無料枠</b>（入力内容がGoogleの改善に使われる場合あり。試作でも社外に出せないデータは入れない）</li>
   </ul></div>
 
-  <div class="term"><h3>人事労務など、個人情報を扱う業務</h3>
-  <ul>
-    <li><b>制度づくりや規程の文面をAIに作らせるときは、氏名や社員番号を匿名化・仮名化して入力してください。</b></li>
-    <li>個人単位で扱う必要がある場合は、チャットに貼らず、<b>freeeなど承認された接続（MCP）経由</b>で扱います。</li>
-  </ul></div>
-
-  <div class="term"><h3>アカウントと履歴</h3>
+  <div class="term" data-req="1"><h3>アカウントと履歴 <b class="b req">必読</b></h3>
   <ul>
     <li><b>業務では会社のアカウントを使ってください。</b>学習オフは会社アカウントのみの設定で、個人アカウントには適用されません</li>
     <li><b>ChatGPTは共有アカウントのため、会話履歴が全員に見えます。</b>見られたくないやりとりは<b>一時チャット</b>を使うか、終わったら削除</li>
-    <li><b>APIキーやパスワードをチャットに貼るのは構いませんが、残さないでください。</b>作業が終わったら会話を削除します。<b>プロジェクトやGPTsの参照資料には置かない</b>こと（消すまで残り、使える人全員に見えます）</li>
   </ul></div>
 
-  <div class="term"><h3>成果物を他人に共有するときに確認すること</h3>
+  <div class="term" data-req="1"><h3>成果物を他人に共有するときに確認すること <b class="b req">必読</b></h3>
   <p><strong>AIが書いた文章でも、送信するのは人間です。</strong>とくに<strong>数字・人名・法令</strong>は必ず確認してください。</p>
   <div class="key"><p><b>人が確認・修正した原稿は、通常の成果物と同じ扱いです。</b>納品も告知もAIを使わない場合と変わりません。ただし先方が制作過程の開示を求める場合、契約でAI利用の申告が定められている場合は、それに従ってください。</p></div></div>
 
@@ -190,14 +185,12 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   </ul>
   <p style="margin-top:12px"><strong>上の3つに1つでも当てはまれば必ず確認、当てはまらなければ確認不要です。</strong>既存著作物に酷似するケースがまれにあります。</p></div>
 
-  <div class="term"><h3>入れてはいけない情報を入れてしまったら</h3>
+  <div class="term" data-req="1"><h3>入れてはいけない情報を入れてしまったら <b class="b req">必読</b></h3>
   <div class="key"><p><b>まず、その会話を削除してください。</b>履歴からすぐ消えます。サーバー上からも各サービスの規定に沿って削除されます（ClaudeとChatGPTは30日以内）。<b>外部学習には使われない設定なので、モデルに残ることはありません。</b></p></div>
   <p style="margin-top:12px"><strong>次の場合だけ、当日中に上長に報告してください。</strong></p>
   <ul>
-    <li><b>顧客・取引先の個人情報</b>だった</li>
     <li><b>削除では消えない場所</b>に入れた（プロジェクトやGPTsの参照資料、共有リンク、MCPで別サービスに書き出したあと）</li>
     <li><b>他の人が見た可能性がある</b>（共有アカウントなど）</li>
-    <li><b>名簿や一覧など、まとまった量</b>だった</li>
   </ul>
   <p style="margin-top:12px">自分の会話に少量入れて、すぐ削除した場合は報告不要です。</p></div>
 </section>
@@ -206,7 +199,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <h2>第 2 部</h2>
   <div class="part-sub">ツールの5分類</div>
 
-  <div class="term"><h3>分類の一覧</h3>
+  <div class="term" data-req="1"><h3>分類の一覧 <b class="b req">必読</b></h3>
   <p>分類の基準は<strong>成果物がどこに残るか</strong>と<strong>どこまで自走するか</strong>。中身のAIはどれもほぼ同じで、性能差より設計思想の差が効きます。</p>
   <table>
     <tr><th>分類</th><th>代表</th><th>成果物の置き場所</th><th>動き方</th></tr>
@@ -220,7 +213,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   ・<b>Google AI Studio</b> … 素材の生成（制作型）に加え、APIキーの発行や、サーバー処理・DB・認証つきのWebアプリ作成（開発型に近い）もできます<br>
   ・<b>Gemini / ChatGPT</b> … 相談（チャット型）と画像生成（制作型）の両方</p></div></div>
 
-  <div class="term"><h3>どれを使うか</h3>
+  <div class="term" data-req="1"><h3>どれを使うか <b class="b req">必読</b></h3>
   <table>
     <tr><th style="width:62%">やりたいこと</th><th>使うもの</th></tr>
     <tr><td>相談したい、文章の下書きがほしい</td><td><b class="b typ-chat">チャット型</b></td></tr>
@@ -330,7 +323,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <h2>第 4 部</h2>
   <div class="part-sub">導入の進め方</div>
 
-  <div class="term"><h3>3段階で進める</h3>
+  <div class="term" data-req="1"><h3>3段階で進める <b class="b req">必読</b></h3>
   <table>
     <tr><th style="width:26%"></th><th>やること</th></tr>
     <tr><td><b>① 手作業でやる</b></td><td>自分で1回やる。<b>手順</b>・<b>合格条件</b>・<b>見本</b>を残す</td></tr>
@@ -386,7 +379,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <h2>第 5 部</h2>
   <div class="part-sub">出力の質を上げる</div>
 
-  <div class="term"><h3>頼み方の基本</h3>
+  <div class="term" data-req="1"><h3>頼み方の基本 <b class="b req">必読</b></h3>
   <table>
     <tr><th style="width:32%">やること</th><th>そのまま使える指示</th></tr>
     <tr><td><b>役割を与える</b></td><td>「経験10年の広報担当として書いてください」</td></tr>
@@ -417,7 +410,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <p style="margin-top:12px"><strong>時間とコストは増えます。</strong>単純作業まで上げる必要はありません。</p>
   <div class="note"><p><b>話題が変わったら新しい会話を立ててください。</b>会話は毎回すべて読み直されるため、長くなるほど遅くなり、前の話題に引きずられます。</p></div></div>
 
-  <div class="term"><h3>事実の誤りを減らす</h3>
+  <div class="term" data-req="1"><h3>事実の誤りを減らす <b class="b req">必読</b></h3>
   <p><strong>ハルシネーションはゼロにできません。</strong>次の4つで減らします。</p>
   <table>
     <tr><th style="width:32%">やること</th><th>そのまま使える指示</th></tr>
@@ -442,7 +435,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <h2>第 6 部</h2>
   <div class="part-sub">ツール別の詳細</div>
 
-  <div class="term"><h3>Claude<span class="en">クロード</span> <b class="b typ-chat">チャット型</b></h3>
+  <div class="term" data-req="1"><h3>Claude<span class="en">クロード</span> <b class="b typ-chat">チャット型</b> <b class="b req">必読</b></h3>
   <p>Anthropic社のAIアシスタント。長文の読み書き、機微な文書、推敲に強みがあります。</p>
   <ul>
     <li><b>向いている</b>：相談、下書き、推敲、資料を貼っての質問</li>
@@ -452,7 +445,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <p>資料・グラフ・簡易ツールを、会話とは別枠で作ってその場で開けます。HTMLファイルとして書き出せるので、社内に配るときはそのままファイルを共有できます。この資料もアーティファクトとして作りました。呼び方はツールごとに違いますが、同様の機能は他のチャット型にもあります。</p>
   <div class="warn"><p><b>公開URLにする場合は注意してください。</b>無料で使える公開の仕組みは、<b>URLを知っている人なら誰でも見られます。</b>社外に出せない内容は、ファイルで配るか社内ツールに置いてください。</p></div></div>
 
-  <div class="term"><h3>Claude Code <b class="b typ-dev">開発型</b></h3>
+  <div class="term" data-req="1"><h3>Claude Code <b class="b typ-dev">開発型</b> <b class="b req">必読</b></h3>
   <p>コードを読み書きするAIエージェント。やりとりはチャット形式で、日本語で指示できます。ターミナルが原点ですが、デスクトップアプリ・Web・VS Codeなどのエディタ拡張でも同じことができます。</p>
   <ul>
     <li><b>向いている</b>：継続的に手を入れるコード、手順が固定した業務自動化</li>
@@ -460,7 +453,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <li><b>特徴</b>：変更履歴が残るため、壊しても元に戻せる</li>
   </ul></div>
 
-  <div class="term"><h3>Cowork<span class="en">コワーク</span> <b class="b typ-work">作業代行型</b></h3>
+  <div class="term" data-req="1"><h3>Cowork<span class="en">コワーク</span> <b class="b typ-work">作業代行型</b> <b class="b req">必読</b></h3>
   <p>フォルダを渡すと、中のファイルを読んで成果物を作り、そのフォルダに書き戻します。<strong>ファイルを1つずつアップロード・ダウンロードする必要がありません。</strong></p>
   <ul>
     <li><b>向いている</b>：フォルダ内の資料整理、1枚で完結するツール</li>
@@ -475,7 +468,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     <li><b>向かない</b>：文章中心の作業</li>
   </ul></div>
 
-  <div class="term"><h3>ChatGPT <b class="b typ-chat">チャット型</b></h3>
+  <div class="term" data-req="1"><h3>ChatGPT <b class="b typ-chat">チャット型</b> <b class="b req">必読</b></h3>
   <p>OpenAI社のAIアシスタント。利用者が最も多く、参考情報も豊富です。</p>
   <ul>
     <li><b>向いている</b>：汎用的な相談、下書き、アイデア出し、画像生成</li>
@@ -486,7 +479,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <p class="tlabel">エージェントモード</p>
   <p>ブラウザを操作して調べ物から資料作成までこなします。ファイル削除や送信など<strong>取り消せない操作の前には必ず確認が入ります</strong>。月あたりの実行回数に上限があります。</p></div>
 
-  <div class="term"><h3>Codex<span class="en">コーデックス</span> <b class="b typ-dev">開発型</b></h3>
+  <div class="term" data-req="1"><h3>Codex<span class="en">コーデックス</span> <b class="b typ-dev">開発型</b> <b class="b req">必読</b></h3>
   <p>OpenAI社の開発者向けエージェント。Claude Codeと同じ位置づけです。</p>
   <ul>
     <li><b>向いている</b>：コードを書く・直す、手順が固定した業務自動化</li>
@@ -637,7 +630,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   <h2>第 8 部</h2>
   <div class="part-sub">用語集</div>
 
-  <div class="term"><h3>基本</h3>
+  <div class="term" data-req="1"><h3>基本 <b class="b req">必読</b></h3>
   <dl>
     <dt>生成AI</dt><dd>文章・画像・コードなどを新しく作り出すAI。検索が既存の情報を探して見せるのに対し、生成AIはその場で文章を組み立てます。そのため正解は保証されません。</dd>
     <dt>LLM（大規模言語モデル）</dt><dd>ChatGPTやClaudeの中身。「次に来る言葉」を予測する仕組みで動きます。意味を理解しているというより、<b>それらしい続きを高い精度で組み立てている</b>のが実態です。</dd>
@@ -688,7 +681,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   </dl>
 </div>
 
-  <div class="term"><h3>モデルと設定</h3>
+  <div class="term" data-req="1"><h3>モデルと設定 <b class="b req">必読</b></h3>
   <dl>
     <dt>モデル</dt><dd>AIの種類・世代。同じサービスでも選ぶモデルで賢さ・速さ・コストが変わります。難しい仕事は高性能モデル、単純作業は軽量モデルが基本です。</dd>
   </dl>
@@ -756,7 +749,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     var kw = q.value.trim().toLowerCase();
     var shown = 0;
     terms.forEach(function(t){
-      var inPart = (filter === 'all') || (t.closest('.part').dataset.part === filter);
+      var inPart = (filter === 'all') || (filter === 'req' ? t.dataset.req === '1' : t.closest('.part').dataset.part === filter);
       var match  = !kw || t._text.indexOf(kw) !== -1;
       var ok = inPart && match;
       t.classList.toggle('hidden', !ok);
@@ -767,7 +760,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
     });
     emptyEl.style.display = shown ? 'none' : 'block';
     countEl.textContent = (kw || filter !== 'all') ? shown + ' 件を表示中' : '全 ' + terms.length + ' 項目';
-    try { localStorage.setItem('aiGuideFilter6', filter); } catch(e){}
+    try { localStorage.setItem('aiGuideFilter7', filter); } catch(e){}
   }
 
   tabs.forEach(function(b){
@@ -782,7 +775,7 @@ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
   q.addEventListener('input', apply);
 
   try {
-    var saved = localStorage.getItem('aiGuideFilter6');
+    var saved = localStorage.getItem('aiGuideFilter7');
     if (saved) {
       var m = tabs.filter(function(x){ return x.dataset.f === saved; })[0];
       if (m) { tabs.forEach(function(x){ x.classList.remove('on'); }); m.classList.add('on'); filter = saved; }
