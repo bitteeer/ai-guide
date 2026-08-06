@@ -197,7 +197,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   <p style="margin-top:12px">法令で扱いが定められているため、社内の判断では変えられません。</p></div>
 
   <div class="term" data-req="1"><h3>それ以外は確認なしで使えます <b class="b req">必読</b></h3>
-  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPTは学習に使われない設定です。案件資料、原稿、議事録、社内の数値など、<b>都度確認せずに使ってください。</b></p></div>
+  <div class="key"><p>社内で契約しているGemini・Claude・ChatGPT・Canvaは学習に使われない設定です。案件資料、原稿、議事録、社内の数値など、<b>都度確認せずに使ってください。</b></p></div>
   <p style="margin-top:12px">個人のパスワードや社外秘の情報は、共有範囲に注意してください。プロジェクトの参照資料に置くと、そのプロジェクトを使える人全員が見られます。</p>
   <p style="margin-top:12px">ただし、次の場合は例外です。</p>
   <ul>
@@ -632,11 +632,22 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   <div class="warn"><p><b>個人アカウントの無料版は、入力内容が学習に使われます。</b>指定案件では法人環境が必要です。</p></div></div>
 
   <div class="term"><h3>Canva <b class="b typ-dsn">制作型</b></h3>
-  <p>デザイン作成ツール。<strong>全員が使えます。</strong>AIで生成した素材を持ち込み、ロゴや文字を載せて仕上げる工程で使います。</p>
+  <p>デザイン作成ツール。<strong>全員が使えます。</strong>2026年4月発表の<b>Canva AI 2.0</b>以降、チャットで指示して作るツールに変わりました。</p>
+  <p style="margin-top:12px"><strong>画像生成AIとの違いは、出てくるものが1枚の絵ではなく、レイヤーに分かれた編集可能なデザインだという点です。</strong>見出しだけ差し替える、写真だけ入れ替えるといった修正がそのままできます。</p>
+  <table>
+    <tr><th style="width:26%">機能</th><th>できること</th></tr>
+    <tr><td><b>Canva AI</b></td><td>会話で指示してデザイン・資料・文章を作る。ブランドキットを読ませると配色とフォントが自動で揃う</td></tr>
+    <tr><td><b>Dream Lab</b></td><td>画像生成。参考画像を渡して雰囲気を寄せられる</td></tr>
+    <tr><td><b>Magic Layers</b></td><td>AIが作った画像をレイヤーに分解して編集できるようにする</td></tr>
+    <tr><td><b>Magic Switch</b></td><td>1つのデザインを媒体別サイズや別フォーマットに一括展開</td></tr>
+    <tr><td><b>Canva Code</b></td><td>会話で簡易ツールやインタラクティブなページを作る。HTMLの読み込みと独自ドメイン公開もできる</td></tr>
+    <tr><td><b>Canva Grow</b></td><td>広告の制作からMeta・TikTok・LinkedInへの入稿、成果の集計までを1か所で行う。AIが配信中の広告に自動でタグを付け、何が効いているかを分解する</td></tr>
+  </table>
   <ul>
-    <li><b>向いている</b>：生成物の仕上げ、媒体別サイズの展開、テンプレートの流用</li>
-    <li><b>向かない</b>：ゼロからの素材生成</li>
-  </ul></div>
+    <li><b>向いている</b>：バナー・資料の量産、媒体別サイズの展開、ブランド指定のある制作物</li>
+    <li><b>向かない</b>：緻密なレタッチ、印刷用の厳密な色調整</li>
+  </ul>
+  <p><strong>社内のCanvaはビジネスプランです。ビジネス・エンタープライズでは、入力内容がAIの改善に使われない設定で固定されています。</strong></p></div>
 </section>
 
 <section class="part" data-part="p7">
@@ -693,7 +704,7 @@ mark { background: #ffe9a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 
   <div class="term" data-req="1"><h3>基本 <b class="b req">必読</b></h3>
   <dl>
-    <dt>生成AI</dt><dd>文章・画像・コードなどを新しく作り出すAI。検索が既存の情報を探して見せるのに対し、生成AIはその場で文章を組み立てます。そのため正解は保証されません。</dd>
+    <dt>生成AI</dt><dd>文章・画像・コードなどを新しく作り出すAI。検索が既存の情報を探して見せるのに対し、生成AIはその場で組み立てます。そのため、世の中にまだ存在しないものでも作れます。手元の資料や数値を読ませれば、それに沿った叩き台がその場で出てきます。</dd>
     <dt>LLM（大規模言語モデル）</dt><dd>ChatGPTやClaudeの中身。「次に来る言葉」を予測する仕組みで動きます。意味を理解しているというより、<b>それらしい続きを高い精度で組み立てている</b>のが実態です。</dd>
     <dt>プロンプト</dt><dd>AIへの指示文。出力の質はここでほぼ決まります。</dd>
     <dt>マルチモーダル</dt><dd>文字だけでなく画像・音声・PDFも扱えること。</dd>
